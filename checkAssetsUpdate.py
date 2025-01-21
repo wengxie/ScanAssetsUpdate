@@ -123,7 +123,7 @@ if __name__ == '__main__':
     # 用于存储每次对比文件更新的日志记录路径
     checkUpdateLogs_path = os.path.split(os.path.realpath(__file__))[0] + r'\checkAssetsUpdateLogs'
     # 用于对比的历史文件名路径
-    fileUpdateLogs_name_path = fileUpdateLogs_path + '\\' + 'Assets20250103_164512'
+    fileUpdateLogs_name_path = fileUpdateLogs_path + '\\' + 'Assets20250117_094553'
 
     # 找出“\client\MainProject\Assets\InBundle”文件夹下所有文件
     allFiles_InBundle = []
@@ -137,8 +137,8 @@ if __name__ == '__main__':
     storage_echo_filelastUpdate_time_tuple = tuple(record_file_update(storage_echo_filelastUpdate_time_list, allFiles_InBundle,assets_detailed_introduction_dict))
 
     # 将各个资源文件的最新更新时间保存下来，方便对比
-    write_fileUpdateLogs(fileUpdateLogs_path,storage_echo_filelastUpdate_time_tuple)
+    #write_fileUpdateLogs(fileUpdateLogs_path,storage_echo_filelastUpdate_time_tuple)
 
     # 用最新的资源文件更新时间与旧的时间对比，从而找出哪些文件更新了
-    #check_file_update(allFiles_InBundle,fileUpdateLogs_name_path,checkUpdateLogs_path)
+    check_file_update(allFiles_InBundle,fileUpdateLogs_name_path,checkUpdateLogs_path)
 
