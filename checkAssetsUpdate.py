@@ -26,7 +26,7 @@ def find_all_Assets_in_InBundle(allFiles_InBundle,excel_path,unity_root_path,ass
         for filepath, dirnames, filenames in os.walk(echo_items_path):
             for filename in filenames:
                 allFiles_InBundle.append(os.path.join(filepath, filename))
-    # 用于输出所有找到的文件
+    #用于输出所有找到的文件
     # for file in allFiles_InBundle:
     #     print(file)
 
@@ -123,13 +123,15 @@ if __name__ == '__main__':
     # 用于存储每次对比文件更新的日志记录路径
     checkUpdateLogs_path = os.path.split(os.path.realpath(__file__))[0] + r'\checkAssetsUpdateLogs'
     # 用于对比的历史文件名路径
-    fileUpdateLogs_name_path = fileUpdateLogs_path + '\\' + 'Assets20250117_094553'
+    fileUpdateLogs_name_path = fileUpdateLogs_path + '\\' + 'Assets20250125_153829'
 
     # 找出“\client\MainProject\Assets\InBundle”文件夹下所有文件
     allFiles_InBundle = []
     assets_detailed_introduction_dict = {}
     allFiles_InBundle,assets_detailed_introduction_dict = find_all_Assets_in_InBundle(allFiles_InBundle,excel_path, unity_root_path,assets_detailed_introduction_dict)
     #print(assets_detailed_introduction_dict)
+    # for file in allFiles_InBundle:
+    #     print(file)
 
     # 记录“\client\MainProject\Assets\InBundle”文件夹下所有文件最近一次的更新时间
     storage_echo_filelastUpdate_time_list =[]
