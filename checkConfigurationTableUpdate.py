@@ -81,7 +81,7 @@ def check_file_update(allFiles_InBundle,fileUpdateLogs_name_path,checkUpdateLogs
 # 按装订区域中的绿色按钮以运行脚本。
 if __name__ == '__main__':
     # 个人Unity工程路径，根据自己实际路径进行配置
-    unity_root_path = r'D:\svn\svnReleasetrunkCHS'
+    unity_root_path = r'E:\Dev_2024_3_30'
     # 策划表路径
     configuration_table_path = unity_root_path + r'\datapool\策划模板导出工具'
     # 文件更新时间记录路径
