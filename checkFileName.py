@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import os
 import re
-from checkFailName import config
+import config
 from collections import defaultdict
 from ScanAssetsUpdate.checkConfigurationTableUpdate import find_all_Configuration_in_InBundle
 
@@ -58,7 +58,7 @@ def main():
     # inbundle_directory = os.path.join('E:', os.sep, 'Devglobal', 'client', 'MainProject', 'Assets', 'InBundle')
     fish_directory = os.path.join(config.INBUNDLE_DIRECTORY, 'Fish')
     # 指定输出文件路径，保存到当前工程目录下
-    output_file_path = 'checkFailName/checkFileName.txt'
+    output_file_path = 'checkFileName/checkFileName.txt'
 
     # 调用函数，获取过滤后的文件路径和文件名列表
     files_with_uppercase, files_with_space = get_filenames_with_uppercase_or_space_in_extension(config.INBUNDLE_DIRECTORY)

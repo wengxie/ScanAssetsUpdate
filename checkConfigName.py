@@ -104,11 +104,11 @@ def is_valid_value(value: str) -> bool:
     return True
 
 
-def read_check_config_name_file(file_path: str) -> List[Tuple[str, str]]:
+def read_check_config_name_file(file_path: str) -> List[Tuple[str, str, str]]:
     """
-    读取 checkConfigName.txt 文件并解析内容，返回元组列表 (文件名, 配置文件路径)
+    读取 checkConfigName.txt 文件并解析内容，返回元组列表 (字段值, 文件名, 配置文件路径)
     :param file_path: checkConfigName.txt 文件路径
-    :return: 包含文件名和配置文件路径的元组列表
+    :return: 包含字段值、文件名和配置文件路径的元组列表
     """
     try:
         with open(file_path, 'r', encoding='utf-8') as file:
@@ -116,25 +116,31 @@ def read_check_config_name_file(file_path: str) -> List[Tuple[str, str]]:
 
         result = []
         for line in lines:
-            match = re.match(r"\s*-\s+(.+)\s+\(in:\s+(.+)\)", line)
+            match = re.match(r"\s*-\s+([^;]+);\s+(\S+)\s+\(in:\s+(.+)\)", line)
             if match:
-                result.append((match.group(1).strip(), match.group(2).strip()))
+                result.append((match.group(1).strip(), match.group(2).strip(), match.group(3).strip()))
         return result
     except IOError as e:
         logging.error(f"Error: Unable to read file {file_path}. {e}")
         return []
 
 
-def merge_duplicate_filenames(entries: List[Tuple[str, str]]) -> List[Tuple[str, Set[str]]]:
+def merge_duplicate_filenames(entries: List[Tuple[str, str, str]]) -> List[Tuple[str, str, Set[str]]]:
     """
     合并重复的文件名，并保留所有关联的配置文件路径
-    :param entries: 包含文件名和配置文件路径的元组列表
-    :return: 包含文件名和配置文件路径集合的元组列表
+    :param entries: 包含字段值、文件名和配置文件路径的元组列表
+    :return: 包含字段值、文件名和配置文件路径集合的元组列表
     """
-    merged_dict = defaultdict(set)
-    for filename, config_file in entries:
-        merged_dict[filename].add(config_file)
-    return [(filename, config_files) for filename, config_files in merged_dict.items()]
+    merged_dict = defaultdict(lambda: defaultdict(set))
+    for value, filename, config_file in entries:
+        merged_dict[value][filename].add(config_file)
+
+    merged_entries = []
+    for value, files in merged_dict.items():
+        for filename, config_files in files.items():
+            merged_entries.append((value, filename, config_files))
+
+    return merged_entries
 
 
 def main():
@@ -148,8 +154,8 @@ def main():
     # 配置目录路径
     config_directory = config.EXCEL_PATH
     inbundle_directory = config.INBUNDLE_DIRECTORY
-    output_file_path = 'checkFailName/checkConfigName.txt'  # 输出文件路径
-    filter_config_path = 'checkFailName/filter_config.json'  # 过滤配置文件路径
+    output_file_path = 'checkFileName/checkConfigName.txt'  # 输出文件路径
+    filter_config_path = 'checkFileName/filter_config.json'  # 过滤配置文件路径
 
     # 读取过滤配置
     filter_config = load_filter_configuration(filter_config_path)
@@ -166,7 +172,7 @@ def main():
     # 初始化 InBundle 目录中的所有无后缀的文件列表
     all_file_names_in_bundle = initialize_all_files_in_bundle_no_extension(inbundle_directory)
 
-    missing_files_with_config = []  # 存储缺失的文件名以及对应的配置文件名
+    missing_files_with_config = []  # 存储缺失的字段值、文件名以及对应的配置文件名
 
     # 遍历每个配置文件
     for file_path in files:
@@ -196,23 +202,23 @@ def main():
         # 过滤掉需要排除的字段名，以及包含汉字、仅包含数字、负数和小数的字段值，首位不是字母以及包含空格的字段值
         filtered_field_values = [(field, value) for field, value in field_values if
                                  field not in exclude_fields and is_valid_value(value)]
-        filtered_filenames = [value for field, value in filtered_field_values]
-        logging.debug(f"Filtered filenames: {filtered_filenames}")
+        logging.debug(f"Filtered field values: {filtered_field_values}")
 
         # 检查每个字段值的存在性，只查看文件名
-        for full_filename in filtered_filenames:
+        for field, full_filename in filtered_field_values:
             # 提取路径中的最后一部分作为文件名
             base_filename = os.path.splitext(os.path.basename(full_filename))[0]
             if not file_exists(base_filename, all_file_names_in_bundle):
-                logging.warning(f"Missing resource name: {base_filename} in config file: {file_path}")
-                missing_files_with_config.append((base_filename, file_path))
+                logging.warning(
+                    f"Missing resource name: {base_filename} with value: {field} in config file: {file_path}")
+                missing_files_with_config.append((field, base_filename, file_path))
 
     # 如果checkConfigName.txt文件存在，读取并合并其内容
     if os.path.isfile(output_file_path):
         previous_entries = read_check_config_name_file(output_file_path)
         missing_files_with_config.extend(previous_entries)
 
-    # 合并重复文件名
+    # 合并重复字段值和文件名
     merged_missing_files = merge_duplicate_filenames(missing_files_with_config)
 
     # 输出检查结果到文件
@@ -225,9 +231,9 @@ def main():
             message = f"Missing resource files: {len(merged_missing_files)}"
             logging.info(message)
             f.write(message + '\n')
-            for filename, config_files in merged_missing_files:
-                logging.info(f" - {filename} (in: {', '.join(config_files)})")
-                f.write(f" - {filename} (in: {', '.join(config_files)})\n")
+            for value, filename, config_files in merged_missing_files:
+                logging.info(f" - {value}; {filename} (in: {', '.join(config_files)})")
+                f.write(f" - {value}; {filename} (in: {', '.join(config_files)})\n")
 
     print(f"Results have been saved to {output_file_path}")
 
