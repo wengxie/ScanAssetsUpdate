@@ -98,8 +98,8 @@
         "QUESTIONNAIRE_NEW.data.txt": ["name", "questionnaireURL"],
         "RESOURCE.data.txt": ["name", "resourceEnumName"],
         "RESOURCE_LANGUAGE.data.txt": ["name", "t_resourcename"],
-        "UNLOCK_SYSTEM.data.txt": ["key", "name", "keyDesc"],
-        "UNLOCK_SYSTEM_NEW_PLOT.data.txt": ["key"]
-
+        "UNLOCK_SYSTEM.data.txt": ["name","key","keyDesc"],
+        "UNLOCK_SYSTEM_NEW_PLOT.data.txt": ["key"],
+        "global": [""]
     }
 }

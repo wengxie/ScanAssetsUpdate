@@ -200,14 +200,14 @@ def main():
                                                                                                                [])
 
         # 过滤掉需要排除的字段名，以及包含汉字、仅包含数字、负数和小数的字段值，首位不是字母以及包含空格的字段值
-        filtered_field_values = [(field, value) for field, value in field_values if
+        filtered_field_values = [(field, value.split(':')[-1] if ':' in value else value) for field, value in field_values if
                                  field not in exclude_fields and is_valid_value(value)]
         logging.debug(f"Filtered field values: {filtered_field_values}")
 
         # 检查每个字段值的存在性，只查看文件名
-        for field, full_filename in filtered_field_values:
+        for field, base_filename in filtered_field_values:
             # 提取路径中的最后一部分作为文件名
-            base_filename = os.path.splitext(os.path.basename(full_filename))[0]
+            base_filename = os.path.splitext(os.path.basename(base_filename))[0]
             if not file_exists(base_filename, all_file_names_in_bundle):
                 logging.warning(
                     f"Missing resource name: {base_filename} with value: {field} in config file: {file_path}")
