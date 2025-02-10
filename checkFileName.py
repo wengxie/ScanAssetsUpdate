@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import os
 import re
-import config
+from checkFileName import config
 from collections import defaultdict
 from ScanAssetsUpdate.checkConfigurationTableUpdate import find_all_Configuration_in_InBundle
 
@@ -29,9 +29,9 @@ def get_filenames_with_uppercase_or_space_in_extension(directory):
 
     return files_with_uppercase, files_with_space
 
-def find_duplicate_files(directory):
+def find_duplicate_prefab_files(directory):
     """
-    查找指定目录及其子目录中的重名 .txt 文件。
+    查找指定目录及其子目录中的重名 .prefab 文件。
 
     :param directory: 需要检查的目录路径
     :return: 包含重名文件路径的字典
@@ -42,8 +42,9 @@ def find_duplicate_files(directory):
     # 遍历目录及其子目录中的所有文件
     for root, _, files in os.walk(directory):
         for file in files:
-            # 将文件名作为字典的键，文件路径作为值存储到列表中
-            files_dict[file].append(os.path.join(root, file))
+            if file.endswith('.prefab'):
+                # 将文件名作为字典的键，文件路径作为值存储到列表中
+                files_dict[file].append(os.path.join(root, file))
 
     # 创建一个字典，筛选出有重名的文件
     duplicates = {file: paths for file, paths in files_dict.items() if len(paths) > 1}
@@ -62,7 +63,7 @@ def main():
 
     # 调用函数，获取过滤后的文件路径和文件名列表
     files_with_uppercase, files_with_space = get_filenames_with_uppercase_or_space_in_extension(config.INBUNDLE_DIRECTORY)
-    duplicates = find_duplicate_files(fish_directory)
+    duplicates = find_duplicate_prefab_files(fish_directory)
 
     # 打印统计信息
     print(f"Number of matched files with uppercase: {len(files_with_uppercase)}")
@@ -78,37 +79,37 @@ def main():
         print("No files with space matched the criteria.")
 
     if duplicates:
-        print("Duplicate files found:")
+        print("Duplicate prefab files found:")
         for file, paths in duplicates.items():
             print(f"\nFile name: {file}")
             print("Paths:")
             for path in paths:
                 print(f"  {path}")
     else:
-        print("No duplicate files found.")
+        print("No duplicate prefab files found.")
 
     # 写入输出文件，覆盖内容
     with open(output_file_path, 'w', encoding='utf-8') as f:
-        f.write("Files with uppercase in extension:\n")
+        f.write("后缀含有大写的文件名:\n")
         for file in files_with_uppercase:
             f.write(file + '\n')
             print(file)
 
-        f.write("\nFiles with space in extension:\n")
+        f.write("\n后缀含有空格的文件名:\n")
         for file in files_with_space:
             f.write(file + '\n')
             print(file)
 
-        f.write("\nDuplicate files found:\n")
+        f.write("\nFish文件夹中的重名Prefab文件:\n")
         if duplicates:
             for file, paths in duplicates.items():
-                f.write(f"\nFile name: {file}\n")
-                f.write("Paths:\n")
+                f.write(f"\n重名文件名: {file}\n")
+                f.write("对应路径:\n")
                 for path in paths:
                     f.write(f"  {path}\n")
                     print(path)
         else:
-            f.write("No duplicate files found.\n")
+            f.write("没有重名文件存在.\n")
 
     # 打印保存结果的信息
     print(f"Results have been saved to {output_file_path}")

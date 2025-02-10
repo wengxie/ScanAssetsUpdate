@@ -18,7 +18,7 @@
 ##### │   ├──Configuration20241219_155508     _# 24年12月19日15点55分08秒扫描的配置表时间记
 ##### ├──checkFileName                        _# 资源扫描结果纪录文件夹
 #####     ├──config.py                        _# 本地工程路径
-#####     ├──filter_config.json               _# 枚举需要过滤掉的配置表/字段，需要定期维护
+#####     ├──filter_config.json               _# 需要过滤掉的配置表/字段序列，需要定期维护
 #####     ├──checkFileName.txt                _# checkFileName结果纪录文件
 #####     ├──checkConfigName.txt              _# checkConfigName.py结果纪录文件
 ##### ├──AssetsPath.xlsx*                     _# 各主要资源（Avatar、鱼竿与鱼竿皮肤、挂件、钓点背景）路径整理_
@@ -80,9 +80,7 @@
 
 3.分析输出文件checkFileName.txt
     
-    #xxx：后缀含有大写字母的文件名
-    #xxx：后缀含有空格的文件名
-    #xxx；fish文件夹中的重名文件
+    #Missing resource files:Inbundle文件夹中缺失的资源文件名
     
     
 
