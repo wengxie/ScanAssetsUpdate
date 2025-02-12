@@ -26,6 +26,9 @@
 ##### ├──checkConfigurationTableUpdate.py     _# 配置表检测脚本_
 ##### ├──checkConfigName.py*                  _# 资源文件存在性检测脚本_
 ##### ├──checkFileName.py*                    _# 资源文件后缀合法性检测脚本_
+##### ├──checkResourceName.py                 _# 查找资源文件在配置表中位置_
+##### ├──checkTAB.py                          _# 查找调用指定配置表的c#脚本_
+##### ├──checkMissionRedirection.py           _# mission_main表中跳转ID正确性校验脚本_
 ##### ├──requirements-all.txt                 _# 环境导出的依赖包_
 （其中使用*结尾的文件是比较重要的文件）
 
@@ -81,6 +84,7 @@
 3.分析输出文件checkFileName.txt
     
     #Missing resource files:Inbundle文件夹中缺失的资源文件名
+    #输出格式：【字段名】【资源文件名】【所在配置表名】
     
     
 

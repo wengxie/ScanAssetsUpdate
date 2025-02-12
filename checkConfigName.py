@@ -3,7 +3,7 @@ import re
 import json
 import logging
 import chardet
-from checkFileName import config
+from all_config import path_config
 from typing import List, Set, Dict, Tuple
 from collections import defaultdict
 
@@ -142,6 +142,18 @@ def merge_duplicate_filenames(entries: List[Tuple[str, str, str]]) -> List[Tuple
 
     return merged_entries
 
+def scan_directory_for_txt_files(directory_path: str) -> List[str]:
+    """
+    扫描指定目录下的所有txt文件
+    :param directory_path: 目录路径
+    :return: txt文件路径的列表
+    """
+    txt_files = []
+    for root, _, files in os.walk(directory_path):
+        for file in files:
+            if file.endswith('.txt'):
+                txt_files.append(os.path.join(root, file))
+    return txt_files
 
 def main():
     """
@@ -152,10 +164,10 @@ def main():
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
     # 配置目录路径
-    config_directory = config.EXCEL_PATH
-    inbundle_directory = config.INBUNDLE_DIRECTORY
-    output_file_path = 'checkFileName/checkConfigName.txt'  # 输出文件路径
-    filter_config_path = 'checkFileName/filter_config.json'  # 过滤配置文件路径
+    config_directory = path_config.EXCEL_PATH
+    inbundle_directory = path_config.INBUNDLE_DIRECTORY
+    output_file_path = 'checkFileNameLog/checkConfigName.txt'  # 输出文件路径
+    filter_config_path = '../all_config/filter_config.json'  # 过滤配置文件路径
 
     # 读取过滤配置
     filter_config = load_filter_configuration(filter_config_path)
