@@ -155,7 +155,7 @@ def main():
     config_directory = config.EXCEL_PATH
     inbundle_directory = config.INBUNDLE_DIRECTORY
     output_file_path = 'checkFileName/checkConfigName.txt'  # 输出文件路径
-    filter_config_path = 'checkFileName/filter_config.json'  # 过滤配置文件路径
+    filter_config_path = '../config/filter_config.json'  # 过滤配置文件路径
 
     # 读取过滤配置
     filter_config = load_filter_configuration(filter_config_path)
