@@ -2,10 +2,11 @@
 import os
 import re
 import datetime
-from all_config import path_config
-from collections import defaultdict
-from ScanAssetsUpdate.checkConfigurationTableUpdate import find_all_Configuration_in_InBundle
 
+from ScanAssetsUpdate.common.checkConfigurationTableUpdate import find_all_Configuration_in_InBundle
+from collections import defaultdict
+
+from ScanAssetsUpdate.config import path_config
 
 # --------------------------
 # 核心校验模块
@@ -32,10 +33,9 @@ def get_abnormal_extensions(directory):
         ext = os.path.splitext(file_path)[1]
         if errors := validate_extension(ext):
             error_type = "+".join(errors)
-            error_dict[error_type].append(file_path)
+            normalized_path = os.path.normpath(file_path).lower()
+            error_dict[error_type].append((file_path, normalized_path))
 
-    for key in error_dict:
-        error_dict[key] = sorted(error_dict[key], key=lambda x: x.lower())
     return error_dict
 
 
@@ -54,12 +54,12 @@ def find_duplicate_prefab_files(directory, subdirectories=None):
                 if file.lower().endswith('.prefab'):
                     full_path = os.path.join(root, file)
                     normalized = os.path.normpath(full_path).lower()
-                    files_dict[file.lower()].append(normalized)
+                    files_dict[file.lower()].append((full_path, normalized))
 
     duplicates = {}
     for name, paths in files_dict.items():
         if len(paths) > 1:
-            duplicates[name] = sorted(list(set(paths)))
+            duplicates[name] = sorted(paths, key=lambda x: x[1])
     return duplicates
 
 
@@ -77,7 +77,7 @@ def parse_benchmark(content):
     current_group = None
 
     for line in content.split('\n'):
-        line = line.strip()  # 新增：去除首尾空白
+        line = line.strip()
         if '===' in line:
             if '非法文件后缀检查' in line:
                 current_section = 'abnormal'
@@ -88,14 +88,14 @@ def parse_benchmark(content):
             continue
 
         if current_section == 'abnormal' and line.startswith('→'):
-            path = os.path.normpath(line[1:].strip()).lower()  # 统一处理箭头符号
+            path = os.path.normpath(line[1:].strip()).lower()
             benchmark['abnormal'].add(path)
 
         elif current_section == 'duplicates':
             if line.startswith(('1.', '2.', '3.')):
                 current_group = line.split('同名文件: ')[1].strip().lower()
             elif line.startswith('▸'):
-                path = os.path.normpath(line[1:].strip()).lower()  # 统一处理符号
+                path = os.path.normpath(line[1:].strip()).lower()
                 benchmark['duplicates'][current_group].add(path)
 
     return benchmark
@@ -107,18 +107,17 @@ def generate_full_report(abnormal, duplicates):
     if abnormal:
         content.append("=== 非法文件后缀检查 ===\n")
         for err_type, files in abnormal.items():
-            # 统一使用标准化路径
-            sorted_files = sorted([os.path.normpath(f) for f in files], key=lambda x: x.lower())
+            sorted_files = sorted(files, key=lambda x: x[1])
             content.append(f"⛔ 违规类型：{err_type}（{len(sorted_files)}个）\n")
-            content.extend(f"   → {f}\n" for f in sorted_files)
+            content.extend(f"   → {f[0]}\n" for f in sorted_files)
             content.append("\n")
 
     if duplicates:
         content.append("\n=== 重名Prefab文件检查 ===\n")
         for idx, (name, paths) in enumerate(duplicates.items(), 1):
             content.append(f"{idx}. 同名文件: {name}\n")
-            sorted_paths = sorted([os.path.normpath(p) for p in paths], key=lambda x: x.lower())
-            content.extend(f"   ▸ {p}\n" for p in sorted_paths)
+            sorted_paths = sorted(paths, key=lambda x: x[1])
+            content.extend(f"   ▸ {p[0]}\n" for p in sorted_paths)
             content.append("\n")
 
     return "".join(content)
@@ -130,44 +129,37 @@ def generate_diff_report(current_abnormal, current_dups, benchmark):
     new_abnormal = defaultdict(list)
     new_duplicates = defaultdict(list)
 
-    # 异常文件对比（双重标准化）
     bench_abnormal = {os.path.normpath(p).lower() for p in benchmark['abnormal']}
     for err_type, files in current_abnormal.items():
-        filtered = [
-            f for f in files
-            if os.path.normpath(f).lower() not in bench_abnormal
-        ]
+        filtered = [f for f in files if f[1] not in bench_abnormal]
         if filtered:
-            new_abnormal[err_type] = filtered
+            new_abnormal[err_type].extend(filtered)
 
-    # 重名文件对比（精确匹配）
     for name, paths in current_dups.items():
         bench_paths = benchmark['duplicates'].get(name.lower(), set())
-        current_set = {os.path.normpath(p).lower() for p in paths}
+        current_set = {p[1] for p in paths}
 
         if name.lower() not in benchmark['duplicates']:
-            new_duplicates[name] = paths
+            new_duplicates[name].extend(paths)
         else:
-            new_paths = [p for p in paths
-                         if os.path.normpath(p).lower() not in bench_paths]
+            new_paths = [p for p in paths if p[1] not in bench_paths]
             if new_paths:
-                new_duplicates[name] = new_paths
+                new_duplicates[name].extend(new_paths)
 
-    # 生成报告内容
     if new_abnormal:
         content.append("=== 新增非法后缀文件 ===\n")
         for err_type, files in new_abnormal.items():
             content.append(f"⛔ 违规类型：{err_type}（{len(files)}个）\n")
-            content.extend(f"   → {os.path.normpath(f)}\n" for f in files)
+            content.extend(f"   → {f[0]}\n" for f in files)
             content.append("\n")
 
     if new_duplicates:
-        if content:  # 添加分隔换行
+        if content:
             content.append("\n")
         content.append("=== 新增重名文件 ===\n")
         for idx, (name, paths) in enumerate(new_duplicates.items(), 1):
             content.append(f"{idx}. 同名文件: {name}\n")
-            content.extend(f"   ▸ {os.path.normpath(p)}\n" for p in paths)
+            content.extend(f"   ▸ {p[0]}\n" for p in paths)
             content.append("\n")
 
     report_content = "".join(content).strip()
@@ -178,7 +170,7 @@ def generate_diff_report(current_abnormal, current_dups, benchmark):
 # 主程序逻辑
 # --------------------------
 def main():
-    output_dir = "checkFileNameLog"
+    output_dir = "../result/domesticLogs/checkFileNameLogs"
     benchmark_path = os.path.join(output_dir, "checkFileName.txt")
     os.makedirs(output_dir, exist_ok=True)
 
@@ -191,12 +183,22 @@ def main():
         ['ArtImport/Fish', 'InBundle/Fish']
     )
 
-    # 读取基准文件
+    # 读取或初始化基准文件
     if os.path.exists(benchmark_path):
         with open(benchmark_path, 'r', encoding='utf-8') as f:
             benchmark = parse_benchmark(f.read())
     else:
         benchmark = {'abnormal': set(), 'duplicates': defaultdict(set)}
+        # 创建新的基准文件并写入当前检测结果
+        try:
+            with open(benchmark_path, 'w', encoding='utf-8') as f:
+                full_report = generate_full_report(current_abnormal, current_dups)
+                f.write(full_report)
+                print(f"基准文件创建并初始化：{os.path.getsize(benchmark_path)} 字节")
+        except PermissionError as e:
+            print(f"权限错误：{str(e)}")
+        except Exception as e:
+            print(f"未知错误：{str(e)}")
 
     # 生成差异报告
     diff_content, new_abnormal, new_duplicates = generate_diff_report(
@@ -219,16 +221,16 @@ def main():
     else:
         print(">> 状态正常：无新增异常文件")
 
-    # 必须更新基准文件（关键修复）
-    # try:
-    #     with open(benchmark_path, 'w', encoding='utf-8') as f:
-    #         full_report = generate_full_report(current_abnormal, current_dups)
-    #         f.write(full_report)
-    #         print(f"基准文件已更新：{os.path.getsize(benchmark_path)} 字节")  # 新增验证
-    # except PermissionError as e:
-    #     print(f"权限错误：{str(e)}")
-    # except Exception as e:
-    #     print(f"未知错误：{str(e)}")
+    # 更新基准文件
+    try:
+        with open(benchmark_path, 'w', encoding='utf-8') as f:
+            full_report = generate_full_report(current_abnormal, current_dups)
+            f.write(full_report)
+            print(f"基准文件已更新：{os.path.getsize(benchmark_path)} 字节")
+    except PermissionError as e:
+        print(f"权限错误：{str(e)}")
+    except Exception as e:
+        print(f"未知错误：{str(e)}")
 
 
 if __name__ == "__main__":

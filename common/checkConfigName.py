@@ -7,14 +7,14 @@ from datetime import datetime
 from collections import defaultdict
 from typing import Dict, Set, List, Tuple, Any
 from dataclasses import dataclass
-from all_config import path_config
+from ScanAssetsUpdate.config import path_config
 
 # 配置日志
 logging.basicConfig(
-    level=logging.DEBUG,  # 设置为DEBUG以显示所有日志信息
+    level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('resource_check.log'),
+        # logging.FileHandler('resource_check.log'),
         logging.StreamHandler()
     ]
 )
@@ -38,9 +38,9 @@ class ResourceEntry:
             return None
 
 # 配置路径
-BASELINE_FILE = "checkFileNameLog/resource_baseline.json"
-DIFF_REPORT_DIR = "checkFileNameLog/diff_reports"
-EXCLUSION_CONFIG = "../all_config/filter_config.json"
+BASELINE_FILE = "../result/domesticLogs/checkConfigNameLogs/config_baseline.json"
+DIFF_REPORT_DIR = "../result/domesticLogs/checkConfigNameLogs/diff_reports"
+EXCLUSION_CONFIG = "../config/filter_config.json"
 
 def find_all_configuration_in_in_bundle(all_files_inbundle: Set[str], directory: str):
     """收集目录下所有资源文件名和路径"""

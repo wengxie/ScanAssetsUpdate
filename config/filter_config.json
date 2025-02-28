@@ -1,6 +1,6 @@
 
 {
-    "exclude_files": [
+    "excluded_files": [
         "ABTEST.data.txt",
         "NAMES.data.txt",
         "PRESENT.data.txt",
@@ -14,7 +14,7 @@
         "RESULT_CODE.data.txt",
         "RESULT_CODE_LANGUAGE.data.txt"
     ],
-    "exclude_fields": {
+    "excluded_fields": {
         "ACHIEVEMENT_GROUP_REWARDS.data.txt": ["name"],
         "ACHIEVEMENT_GROUP_REWARDS_LANGUAGE.data.txt": ["name","title"],
         "ACHIEVEMENT_WANTED.data.txt": ["name"],
