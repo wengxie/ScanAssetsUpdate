@@ -3,240 +3,282 @@ import re
 import json
 import logging
 import chardet
-from checkFileName import config
-from typing import List, Set, Dict, Tuple
+from datetime import datetime
 from collections import defaultdict
+from typing import Dict, Set, List, Tuple, Any
+from dataclasses import dataclass
+from all_config import path_config
 
-from ScanAssetsUpdate.checkConfigurationTableUpdate import find_all_Configuration_in_InBundle
+# 配置日志
+logging.basicConfig(
+    level=logging.DEBUG,  # 设置为DEBUG以显示所有日志信息
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler('resource_check.log'),
+        logging.StreamHandler()
+    ]
+)
+
+@dataclass(unsafe_hash=True)
+class ResourceEntry:
+    """资源条目类（增加哈希支持）"""
+    field_value: str
+    resource_name: str
+
+    def serialize(self) -> str:
+        return f"{self.field_value};;{self.resource_name}"
+
+    @classmethod
+    def deserialize(cls, data: str):
+        try:
+            field_value, resource_name = data.split(";;")
+            return cls(field_value=field_value, resource_name=resource_name)
+        except ValueError as e:
+            logging.error(f"反序列化失败: {data} - {str(e)}")
+            return None
+
+# 配置路径
+BASELINE_FILE = "checkFileNameLog/resource_baseline.json"
+DIFF_REPORT_DIR = "checkFileNameLog/diff_reports"
+EXCLUSION_CONFIG = "../all_config/filter_config.json"
+
+def find_all_configuration_in_in_bundle(all_files_inbundle: Set[str], directory: str):
+    """收集目录下所有资源文件名和路径"""
+    for root, _, files in os.walk(directory):
+        for filename in files:
+            relative_path = os.path.relpath(os.path.join(root, filename), directory).replace(os.sep, '/')
+            all_files_inbundle.add(relative_path)
+
+def normalize_data(data: Any) -> Any:
+    """数据标准化"""
+    if isinstance(data, dict):
+        sorted_data = {k: normalize_data(v) for k, v in sorted(data.items(), key=lambda x: x[0])}
+        return sorted_data
+    elif isinstance(data, (list, set)):
+        sorted_list = sorted([normalize_data(item) for item in data], key=lambda x: str(x))
+        return sorted_list
+    elif isinstance(data, tuple):
+        return normalize_data(list(data))
+    return data
+
+def generate_diff_report(diffs: Tuple[Dict, Dict, Dict], report_type: str = "resource"):
+    """生成差异报告"""
+    os.makedirs(DIFF_REPORT_DIR, exist_ok=True)
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    report_path = os.path.join(DIFF_REPORT_DIR, f"{report_type}_diff_{timestamp}.txt")
+
+    added, removed, modified = diffs
+
+    with open(report_path, 'w', encoding='utf-8') as f:
+        if added:
+            f.write("=== 新增资源 ===\n")
+            for entry_str, files in added.items():
+                entry = ResourceEntry.deserialize(entry_str)
+                if entry:
+                    f.write(f"字段: {entry.field_value}\n资源: {entry.resource_name}\n相关文件: {', '.join(files)}\n\n")
+
+        if removed:
+            f.write("=== 删除资源 ===\n")
+            for entry_str, files in removed.items():
+                entry = ResourceEntry.deserialize(entry_str)
+                if entry:
+                    f.write(f"字段: {entry.field_value}\n资源: {entry.resource_name}\n相关文件: {', '.join(files)}\n\n")
+
+        if modified:
+            f.write("=== 修改资源 ===\n")
+            for entry_str, (old_files, new_files) in modified.items():
+                entry = ResourceEntry.deserialize(entry_str)
+                if entry:
+                    f.write(f"字段: {entry.field_value}\n资源: {entry.resource_name}\n")
+                    f.write(f"原文件: {', '.join(sorted(old_files))}\n")
+                    f.write(f"新文件: {', '.join(sorted(new_files))}\n\n")
+
+    logging.info(f"差异报告已生成：{report_path}")
+
+def compare_with_baseline(current: Dict[str, List[str]], baseline: Dict[str, List[str]]) -> Tuple[Dict, Dict, Dict]:
+    """比较当前与基准的数据"""
+    added = {entry: current[entry] for entry in current if entry not in baseline}
+    removed = {entry: baseline[entry] for entry in baseline if entry not in current}
+    modified = {
+        entry: (sorted(baseline[entry]), sorted(current[entry]))
+        for entry in current
+        if entry in baseline and sorted(current[entry]) != sorted(baseline[entry])
+    }
+
+    return added, removed, modified
+
+def validate_resource_name(name: str) -> bool:
+    """验证资源名称是否符合规范"""
+    pattern = re.compile(r'^[A-Za-z][A-Za-z0-9_]*(?:/[A-Za-z][A-Za-z0-9_]*)*$')
+    return bool(pattern.fullmatch(name))
 
 
-def read_file(file_path: str) -> str:
-    """
-    读取文件内容并返回作为字符串。
-    :param file_path: 文件的路径
-    :return: 文件内容的字符串, 或者是 None (读取失败)
-    """
+def load_exclusion_config(config_path: str) -> Dict:
+    """加载排除配置"""
     try:
-        # 检测文件编码
-        with open(file_path, 'rb') as file:
-            raw_data = file.read()
-            result = chardet.detect(raw_data)
-            encoding = result['encoding']
+        with open(config_path, 'r', encoding='utf-8') as f:
+            config = json.load(f)
+            excluded_files = {os.path.basename(f.lower().strip()) for f in config.get("excluded_files", [])}
+            excluded_fields = defaultdict(set)
+            for raw_file, fields in config.get("excluded_fields", {}).items():
+                file = os.path.basename(raw_file.lower().strip())
+                excluded_fields[file].update(field.lower().strip() for field in fields)
+            return {"excluded_files": excluded_files, "excluded_fields": excluded_fields}
+    except Exception as e:
+        logging.error(f"配置加载失败: {e}")
+        return {"excluded_files": set(), "excluded_fields": defaultdict(set)}
 
-        # 使用检测到的编码读取文件内容
-        with open(file_path, 'r', encoding=encoding) as file:
-            content = file.read()
-        return content
-    except IOError as e:
-        logging.error(f"Error: Unable to read file {file_path}. {e}")
-        return None
-    except UnicodeDecodeError as e:
-        logging.error(f"Error: Cannot decode file {file_path}. {e}")
-        return None
-
-
-def load_filter_configuration(config_path: str) -> Dict:
-    """
-    读取过滤配置文件并返回过滤规则字典
-    :param config_path: 过滤配置文件路径
-    :return: 过滤规则字典
-    """
+def is_valid_text_file(filepath: str) -> bool:
+    """检查文件是否为有效文本文件"""
     try:
-        with open(config_path, 'r', encoding='utf-8') as file:
-            return json.load(file)
-    except IOError as e:
-        logging.error(f"Error: Unable to read filter configuration file {config_path}. {e}")
-        return {}
-
-
-def extract_field_values(content: str) -> List:
-    """
-    从文件内容中提取所有字段及字段值
-    :param content: 文件内容字符串
-    :return: 包含字段名和值的元组列表
-    """
-    field_pattern = re.compile(r'(\w+)\s*=\s*"([^"]+)";')
-    matches = field_pattern.finditer(content)
-    field_values = [(match.group(1).strip(), match.group(2).strip()) for match in matches]
-    return field_values
-
-
-def file_exists(file_name: str, all_files: Set[str]) -> bool:
-    """
-    检查文件名是否存在于 all_files 集合中
-    :param file_name: 文件名
-    :param all_files: 文件路径集合
-    :return: 文件名是否存在的布尔值
-    """
-    return file_name in all_files
-
-
-def initialize_all_files_in_bundle_no_extension(inbundle_directory: str) -> Set[str]:
-    """
-    初始化 InBundle 目录中的所有无后缀的文件列表
-    :param inbundle_directory: InBundle 目录路径
-    :return: 无后缀的文件名集合
-    """
-    all_files_in_bundle = []
-    find_all_Configuration_in_InBundle(all_files_in_bundle, inbundle_directory)
-    all_file_names = {os.path.splitext(os.path.basename(file))[0] for file in all_files_in_bundle}
-    return all_file_names
-
-
-def is_valid_value(value: str) -> bool:
-    """
-    检查字段值是否合法，过滤掉包含汉字、仅包含数字、负数、小数、首位不是字母以及包含空格的字段值
-    :param value: 字段值
-    :return: 如果字段值合法则返回 True，否则返回 False
-    """
-    # 检查是否包含汉字
-    if re.search(r'[\u4e00-\u9fa5]', value):
+        with open(filepath, 'rb') as f:
+            raw_data = f.read(512)
+            detect = chardet.detect(raw_data)
+            return detect['encoding'] is not None
+    except Exception as e:
+        logging.error(f"文件读取错误: {filepath} - {e}")
         return False
-    # 检查是否为纯数字、负数或小数
-    if re.match(r'^-?\d+(\.\d+)?$', value):
-        return False
-    # 检查首位是否是字母
-    if not value[0].isalpha():
-        return False
-    # 检查是否包含空格
-    if ' ' in value:
-        return False
+
+def read_file_contents(filepath: str) -> str:
+    """读取文件内容并返回文本"""
+    try:
+        with open(filepath, 'rb') as f:
+            raw_data = f.read()
+            encoding = chardet.detect(raw_data)['encoding']
+            return raw_data.decode(encoding)
+    except Exception as e:
+        logging.error(f"读取文件内容失败: {filepath} - {e}")
+        return ""
+
+def parse_config_contents(content: str) -> List[Tuple[str, str]]:
+    """解析配置文件内容"""
+    pattern = re.compile(r'^\s*(\w+)\s*=\s*\"([^\"]*)\"', re.MULTILINE)
+    parsed_entries = pattern.findall(content)
+
+    # 过滤掉显然不是资源路径的内容
+    # 假设资源路径不包含 HTML 标签及其他特殊字符，并且不包含占位符(%d, %s等)
+    # filtered_entries = [
+    #     (field, value) for field, value in parsed_entries
+    #     if (re.fullmatch(r'^[A-Za-z0-9_\/]+$', value)
+    #         and not re.search(r'%\w|<[^>]+>', value)
+    #         and not re.search(r'[\u4e00-\u9fff]', value)
+    #     )
+    # ]
+    filtered_entries = [
+        (field, value) for field, value in parsed_entries
+        if re.fullmatch(r'^[A-Za-z0-9_\/\.]+$', value)
+           and not re.search(r'%\w|<[^>]+>|[\u4e00-\u9fff]', value)
+    ]
+    return filtered_entries
+
+def is_path_in_bundle(path: str, bundle_resources: Set[str]) -> bool:
+    """逐级检查路径是否存在于资源包中"""
+    parts = path.split('/')
+    for i in range(1, len(parts) + 1):
+        sub_path = '/'.join(parts[:i])
+        if sub_path not in bundle_resources:
+            return False
     return True
 
+def collect_missing_resources(config_dir: str, bundle_resources: Set[str], exclusions: Dict) -> Dict[ResourceEntry, Set[str]]:
+    """收集缺失资源"""
+    findings = defaultdict(set)
+    excluded_files = exclusions["excluded_files"]
+    excluded_fields = exclusions["excluded_fields"]
 
-def read_check_config_name_file(file_path: str) -> List[Tuple[str, str, str]]:
-    """
-    读取 checkConfigName.txt 文件并解析内容，返回元组列表 (字段值, 文件名, 配置文件路径)
-    :param file_path: checkConfigName.txt 文件路径
-    :return: 包含字段值、文件名和配置文件路径的元组列表
-    """
-    try:
-        with open(file_path, 'r', encoding='utf-8') as file:
-            lines = file.readlines()
+    for filename in os.listdir(config_dir):
+        file_base = os.path.basename(filename).lower()
 
-        result = []
-        for line in lines:
-            match = re.match(r"\s*-\s+([^;]+);\s+(\S+)\s+\(in:\s+(.+)\)", line)
-            if match:
-                result.append((match.group(1).strip(), match.group(2).strip(), match.group(3).strip()))
-        return result
-    except IOError as e:
-        logging.error(f"Error: Unable to read file {file_path}. {e}")
-        return []
-
-
-def merge_duplicate_filenames(entries: List[Tuple[str, str, str]]) -> List[Tuple[str, str, Set[str]]]:
-    """
-    合并重复的文件名，并保留所有关联的配置文件路径
-    :param entries: 包含字段值、文件名和配置文件路径的元组列表
-    :return: 包含字段值、文件名和配置文件路径集合的元组列表
-    """
-    merged_dict = defaultdict(lambda: defaultdict(set))
-    for value, filename, config_file in entries:
-        merged_dict[value][filename].add(config_file)
-
-    merged_entries = []
-    for value, files in merged_dict.items():
-        for filename, config_files in files.items():
-            merged_entries.append((value, filename, config_files))
-
-    return merged_entries
-
-
-def main():
-    """
-    主函数，扫描配置目录中的所有配置文件，解析内容并检查资源路径是否存在
-    合并 checkConfigName.txt 文件中的重复文件名，并输出最终结果到同一文件
-    """
-    # 设置日志配置
-    logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-
-    # 配置目录路径
-    config_directory = config.EXCEL_PATH
-    inbundle_directory = config.INBUNDLE_DIRECTORY
-    output_file_path = 'checkFileName/checkConfigName.txt'  # 输出文件路径
-    filter_config_path = '../config/filter_config.json'  # 过滤配置文件路径
-
-    # 读取过滤配置
-    filter_config = load_filter_configuration(filter_config_path)
-
-    # 检查配置目录是否存在
-    if not os.path.isdir(config_directory):
-        logging.error(f"The directory does not exist: {config_directory}")
-        return
-
-    # 获取配置目录中的所有 .txt 文件路径
-    files = [os.path.join(config_directory, fname) for fname in os.listdir(config_directory) if
-             fname.lower().endswith('.txt')]
-
-    # 初始化 InBundle 目录中的所有无后缀的文件列表
-    all_file_names_in_bundle = initialize_all_files_in_bundle_no_extension(inbundle_directory)
-
-    missing_files_with_config = []  # 存储缺失的字段值、文件名以及对应的配置文件名
-
-    # 遍历每个配置文件
-    for file_path in files:
-        # 检查该文件是否在需要排除的文件列表中
-        exclude_files = filter_config.get('exclude_files', [])
-        if os.path.basename(file_path) in exclude_files:
-            logging.info(f"Skipping excluded file: {file_path}")
+        # 只处理 .txt 文件
+        if not filename.lower().endswith('.txt'):
             continue
 
-        logging.info(f"Processing file: {file_path}")
+        # 文件级排除检查
+        if file_base in excluded_files:
+            continue
+
+        file_path = os.path.join(config_dir, filename)
+
+        # 检查文件是否为有效文本文件
+        if not is_valid_text_file(file_path):
+            logging.warning(f"非文本文件或编码检测失败: {filename}")
+            continue
 
         # 读取文件内容
-        content = read_file(file_path)
-        if content is None:
+        content = read_file_contents(file_path)
+        if not content:
+            logging.warning(f"文件内容读取失败: {filename}")
             continue
 
-        # 提取所有字段名和字段值
-        field_values = extract_field_values(content)
-        logging.debug(f"Field values extracted: {field_values}")
+        # 获取该文件对应的字段排除规则
+        fields_to_exclude = excluded_fields.get(file_base, set())
 
-        # 获取当前文件需要排除的字段
-        filename = os.path.basename(file_path)
-        exclude_fields = filter_config.get('exclude_fields', {}).get(filename, []) + filter_config.get('exclude_fields',
-                                                                                                       {}).get('global',
-                                                                                                               [])
+        # 解析和处理每个配置项
+        for field, value in parse_config_contents(content):
+            if field.lower() in fields_to_exclude:
+                continue
 
-        # 过滤掉需要排除的字段名，以及包含汉字、仅包含数字、负数和小数的字段值，首位不是字母以及包含空格的字段值
-        filtered_field_values = [(field, value.split(':')[-1] if ':' in value else value) for field, value in field_values if
-                                 field not in exclude_fields and is_valid_value(value)]
-        logging.debug(f"Filtered field values: {filtered_field_values}")
+            resource_path = value.strip()
+            if '/' in resource_path:
+                # 资源路径包含子路径，进行路径逐级检查
+                if not is_path_in_bundle(resource_path, bundle_resources):
+                    entry = ResourceEntry(field_value=field, resource_name=resource_path)
+                    findings[entry].add(filename)
+                    # logging.debug(f"缺失资源: {resource_path} 于字段 {field} 文件 {filename}")
+            else:
+                # 资源路径不包含子路径，进行简单的资源名验证和存在性检查
+                resource_name = os.path.splitext(resource_path)[0]
+                if not validate_resource_name(resource_name):
+                    # logging.warning(f"无效资源名: {resource_path} 来自 {filename}.{field}")
+                    continue
 
-        # 检查每个字段值的存在性，只查看文件名
-        for field, base_filename in filtered_field_values:
-            # 提取路径中的最后一部分作为文件名
-            base_filename = os.path.splitext(os.path.basename(base_filename))[0]
-            if not file_exists(base_filename, all_file_names_in_bundle):
-                logging.warning(
-                    f"Missing resource name: {base_filename} with value: {field} in config file: {file_path}")
-                missing_files_with_config.append((field, base_filename, file_path))
+                if resource_name not in bundle_resources:
+                    entry = ResourceEntry(field_value=field, resource_name=resource_name)
+                    findings[entry].add(filename)
+                    # logging.debug(f"缺失资源: {resource_name} 于字段 {field} 文件 {filename}")
 
-    # 如果checkConfigName.txt文件存在，读取并合并其内容
-    if os.path.isfile(output_file_path):
-        previous_entries = read_check_config_name_file(output_file_path)
-        missing_files_with_config.extend(previous_entries)
+    return findings
 
-    # 合并重复字段值和文件名
-    merged_missing_files = merge_duplicate_filenames(missing_files_with_config)
+def main():
+    """主执行流程"""
+    print("扫描资源中，请稍后...")
 
-    # 输出检查结果到文件
-    with open(output_file_path, 'w', encoding='utf-8') as f:
-        if not merged_missing_files:
-            message = "All resource files are present."
-            logging.info(message)
-            f.write(message + '\n')
-        else:
-            message = f"Missing resource files: {len(merged_missing_files)}"
-            logging.info(message)
-            f.write(message + '\n')
-            for value, filename, config_files in merged_missing_files:
-                logging.info(f" - {value}; {filename} (in: {', '.join(config_files)})")
-                f.write(f" - {value}; {filename} (in: {', '.join(config_files)})\n")
+    # 获取包内所有配置资源
+    bundle_resources = set()
+    find_all_configuration_in_in_bundle(bundle_resources, path_config.INBUNDLE_DIRECTORY)
 
-    print(f"Results have been saved to {output_file_path}")
+    # 加载排除配置
+    exclusions = load_exclusion_config(EXCLUSION_CONFIG)
 
+    # 收集缺失资源
+    current_findings = collect_missing_resources(path_config.EXCEL_PATH, bundle_resources, exclusions)
+
+    # 序列化结果并对文件名列表排序
+    current_serialized = {entry.serialize(): sorted(list(files)) for entry, files in current_findings.items()}
+
+    # 处理基准文件
+    if not os.path.exists(BASELINE_FILE):
+        os.makedirs(os.path.dirname(BASELINE_FILE), exist_ok=True)
+        with open(BASELINE_FILE, 'w', encoding='utf-8') as f:
+            json.dump(current_serialized, f, indent=2, ensure_ascii=False)
+        logging.info(f"基准文件已生成")
+        return
+
+    # 加载基准文件并进行对比
+    with open(BASELINE_FILE, 'r', encoding='utf-8') as f:
+        baseline_findings = json.load(f)
+
+    # 比较当前资源与基准资源
+    diffs = compare_with_baseline(current_serialized, baseline_findings)
+
+    # 如果有差异，则生成差异报告并更新基准文件
+    if any(diffs):
+        generate_diff_report(diffs)
+        with open(BASELINE_FILE, 'w', encoding='utf-8') as f:
+            json.dump(current_serialized, f, indent=2, ensure_ascii=False)
+        logging.info("基准文件已更新")
+    else:
+        logging.info("资源状态与基准一致，无差异")
 
 if __name__ == "__main__":
     main()
