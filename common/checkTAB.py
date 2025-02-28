@@ -1,7 +1,6 @@
 import logging
 import os
 import chardet
-from all_config import path_config
 
 
 def detect_encoding(file_path):
