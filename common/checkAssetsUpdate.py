@@ -115,7 +115,7 @@ def check_file_update(allFiles_InBundle,fileUpdateLogs_name_path,checkUpdateLogs
 # 按装订区域中的绿色按钮以运行脚本。
 if __name__ == '__main__':
     # 存储扫描资源的excel路径
-    excel_path = r'D:\wengxie\Pycharm\PythonProject\ScanAssetsUpdate\AssetsPath.xlsx'
+    excel_path = r'/AssetsPath.xlsx'
     # 个人Unity工程路径下项目的MainProject路径
     unity_root_path = r'D:\svn\svnReleasetrunkCHS\client\MainProject'
     # 文件更新时间记录路径
@@ -123,7 +123,7 @@ if __name__ == '__main__':
     # 用于存储每次对比文件更新的日志记录路径
     checkUpdateLogs_path = os.path.split(os.path.realpath(__file__))[0] + r'\checkAssetsUpdateLogs'
     # 用于对比的历史文件名路径
-    fileUpdateLogs_name_path = fileUpdateLogs_path + '\\' + 'Assets20250125_153829'
+    fileUpdateLogs_name_path = fileUpdateLogs_path + '\\' + 'Assets20250222_103734'
 
     # 找出“\client\MainProject\Assets\InBundle”文件夹下所有文件
     allFiles_InBundle = []
