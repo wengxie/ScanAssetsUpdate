@@ -222,15 +222,15 @@ def main():
         print(">> 状态正常：无新增异常文件")
 
     # 更新基准文件
-    try:
-        with open(benchmark_path, 'w', encoding='utf-8') as f:
-            full_report = generate_full_report(current_abnormal, current_dups)
-            f.write(full_report)
-            print(f"基准文件已更新：{os.path.getsize(benchmark_path)} 字节")
-    except PermissionError as e:
-        print(f"权限错误：{str(e)}")
-    except Exception as e:
-        print(f"未知错误：{str(e)}")
+    # try:
+    #     with open(benchmark_path, 'w', encoding='utf-8') as f:
+    #         full_report = generate_full_report(current_abnormal, current_dups)
+    #         f.write(full_report)
+    #         print(f"基准文件已更新：{os.path.getsize(benchmark_path)} 字节")
+    # except PermissionError as e:
+    #     print(f"权限错误：{str(e)}")
+    # except Exception as e:
+    #     print(f"未知错误：{str(e)}")
 
 
 if __name__ == "__main__":
