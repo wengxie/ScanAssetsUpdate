@@ -274,9 +274,9 @@ def main():
     # 如果有差异，则生成差异报告并更新基准文件
     if any(diffs):
         generate_diff_report(diffs)
-        with open(BASELINE_FILE, 'w', encoding='utf-8') as f:
-            json.dump(current_serialized, f, indent=2, ensure_ascii=False)
-        logging.info("基准文件已更新")
+        # with open(BASELINE_FILE, 'w', encoding='utf-8') as f:
+        #     json.dump(current_serialized, f, indent=2, ensure_ascii=False)
+        # logging.info("基准文件已更新")
     else:
         logging.info("资源状态与基准一致，无差异")
 
