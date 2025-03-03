@@ -3,9 +3,8 @@ import datetime
 import os
 import re
 from collections import defaultdict
-
-from ScanAssetsUpdate.common.checkConfigurationTableUpdate import find_all_Configuration_in_InBundle
-from ScanAssetsUpdate.config import path_config
+from checkConfigurationTableUpdate import find_all_Configuration_in_InBundle
+from config import path_config
 
 
 # --------------------------
@@ -177,10 +176,11 @@ def main():
     print(f"基准文件存储路径：{os.path.abspath(benchmark_path)}")  # 调试输出
 
     # 获取当前检测结果
-    current_abnormal = get_abnormal_extensions(path_config.INBUNDLE_DIRECTORY)
+    inbundle_path = "client/MainProject/InBundle"
+    current_abnormal = get_abnormal_extensions(os.path.join(path_config.DOMESTIC_UNITY_ROOT_PATH, inbundle_path))
     current_dups = find_duplicate_prefab_files(
-        path_config.ASSETS_DIRECTORY,
-        ['ArtImport/Fish', 'InBundle/Fish']
+        path_config.DOMESTIC_UNITY_ROOT_PATH,
+        ['client/MainProject/AssetsArtImport/Fish', 'client/MainProject/InBundle/Fish']
     )
 
     # 读取或初始化基准文件

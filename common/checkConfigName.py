@@ -245,14 +245,16 @@ def main():
     print("扫描资源中，请稍后...")
 
     # 获取包内所有配置资源
+    inbundle_path = "client/MainProject/InBundle"
+    excel_path = "datapool\ElementData\BaseData"
     bundle_resources = set()
-    find_all_configuration_in_in_bundle(bundle_resources, path_config.INBUNDLE_DIRECTORY)
+    find_all_configuration_in_in_bundle(bundle_resources, os.path.join(path_config.DOMESTIC_UNITY_ROOT_PATH, inbundle_path))
 
     # 加载排除配置
     exclusions = load_exclusion_config(EXCLUSION_CONFIG)
 
     # 收集缺失资源
-    current_findings = collect_missing_resources(path_config.EXCEL_PATH, bundle_resources, exclusions)
+    current_findings = collect_missing_resources(os.path.join(path_config.DOMESTIC_UNITY_ROOT_PATH, excel_path), bundle_resources, exclusions)
 
     # 序列化结果并对文件名列表排序
     current_serialized = {entry.serialize(): sorted(list(files)) for entry, files in current_findings.items()}
