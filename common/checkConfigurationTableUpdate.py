@@ -4,8 +4,11 @@
 # 按 双击 Shift 在所有地方搜索类、文件、工具窗口、操作和设置。
 import os
 import time
+
 # 用于往txt中导入颜色字体
 import colorama
+
+from config import path_config
 
 
 # 找出“\client\MainProject\Assets\InBundle”文件夹下所有文件
@@ -80,14 +83,13 @@ def check_file_update(allFiles_InBundle,fileUpdateLogs_name_path,checkUpdateLogs
 
 # 按装订区域中的绿色按钮以运行脚本。
 if __name__ == '__main__':
-    # 个人Unity工程路径，根据自己实际路径进行配置
-    unity_root_path = r'E:\Dev_2024_3_30'
-    # 策划表路径
-    configuration_table_path = unity_root_path + r'\datapool\策划模板导出工具'
+
+    # 个人国内Unity工程的策划表路径，直接去修改config下的path_config文件
+    configuration_table_path = path_config.DOMESTIC_UNITY_ROOT_PATH + r'\datapool\策划模板导出工具'
     # 文件更新时间记录路径
-    fileUpdateLogs_path = os.path.split(os.path.realpath(__file__))[0] + r'\historyConfigurationFileUpdateTime'
+    fileUpdateLogs_path = os.path.dirname(os.path.split(os.path.realpath(__file__))[0]) + r'\dataBackup\domesticBackup\historyConfigurationFileUpdateTime'
     # 用于存储每次对比文件更新的日志记录路径
-    checkUpdateLogs_path = os.path.split(os.path.realpath(__file__))[0] + r'\checkConfigurationUpdateLogs'
+    checkUpdateLogs_path = os.path.dirname(os.path.split(os.path.realpath(__file__))[0]) + r'\result\domesticLogs\checkConfigurationUpdateLogs'
     # 用于对比的历史文件名路径
     fileUpdateLogs_name_path = fileUpdateLogs_path + '\\' + 'Configuration20241219_155508'
 

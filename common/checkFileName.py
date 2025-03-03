@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
+import datetime
 import os
 import re
-import datetime
-
-from ScanAssetsUpdate.common.checkConfigurationTableUpdate import find_all_Configuration_in_InBundle
 from collections import defaultdict
 
+from ScanAssetsUpdate.common.checkConfigurationTableUpdate import find_all_Configuration_in_InBundle
 from ScanAssetsUpdate.config import path_config
+
 
 # --------------------------
 # 核心校验模块

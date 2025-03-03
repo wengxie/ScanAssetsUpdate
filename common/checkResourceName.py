@@ -1,7 +1,8 @@
-import os
 import logging
-import chardet
+import os
 from typing import List, Tuple
+
+import chardet
 from ScanAssetsUpdate.config import path_config
 
 
