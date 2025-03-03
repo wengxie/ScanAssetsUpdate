@@ -3,18 +3,23 @@
 # 按 Shift+F10 执行或将其替换为您的代码。
 # 按 双击 Shift 在所有地方搜索类、文件、工具窗口、操作和设置。
 import os
+import sys
 import time
+
 # 用于往txt中导入颜色字体
 import colorama
-import sys
-import pandas
 import numpy
+import pandas
+
+# 全局变量
+from config import path_config
+
 sys.setrecursionlimit(100000)
 
 # 找出“\client\MainProject\Assets\InBundle”文件夹下所有文件
-def find_all_Assets_in_InBundle(allFiles_InBundle,excel_path,unity_root_path,assets_detailed_introduction_dict):
+def find_all_Assets_in_InBundle(allFiles_InBundle,scan_assets_excel_path,domestic_unity_mainProject_root_path,assets_detailed_introduction_dict):
     #解析excel，提前excel中扫描主路径，保存到数组中
-    excel_dataframe = pandas.read_excel(excel_path)
+    excel_dataframe = pandas.read_excel(scan_assets_excel_path)
     # 获取去重前的元素先后顺序索引，用于下方排序
     _, indices = numpy.unique(excel_dataframe['主路径'].dropna().to_numpy(), return_index=True)
     # 将路径数组在不改变元素先后顺序的情况下去重
@@ -22,7 +27,7 @@ def find_all_Assets_in_InBundle(allFiles_InBundle,excel_path,unity_root_path,ass
 
     # 将所有找到的文件存在列表中
     for items in excel_dataframe_path_array.flat:
-        echo_items_path = unity_root_path + '\\' + items
+        echo_items_path = domestic_unity_mainProject_root_path + '\\' + items
         for filepath, dirnames, filenames in os.walk(echo_items_path):
             for filename in filenames:
                 allFiles_InBundle.append(os.path.join(filepath, filename))
@@ -115,20 +120,21 @@ def check_file_update(allFiles_InBundle,fileUpdateLogs_name_path,checkUpdateLogs
 # 按装订区域中的绿色按钮以运行脚本。
 if __name__ == '__main__':
     # 存储扫描资源的excel路径
-    excel_path = r'/AssetsPath.xlsx'
-    # 个人Unity工程路径下项目的MainProject路径
-    unity_root_path = r'D:\svn\svnReleasetrunkCHS\client\MainProject'
+    scan_assets_excel_path = os.path.dirname(os.path.dirname(os.path.realpath(__file__))) + r'\testcase\AssetsPath.xlsx'
+
+    #个人国内Unity工程路径下项目的MainProject路径,直接去修改config下的path_config文件
+    domestic_unity_mainProject_root_path = path_config.DOMESTIC_UNITY_ROOT_PATH + r'\client\MainProject'
     # 文件更新时间记录路径
-    fileUpdateLogs_path = os.path.split(os.path.realpath(__file__))[0] + r'\historyAssetsFileUpdateTime'
+    fileUpdateLogs_path = os.path.dirname(os.path.split(os.path.realpath(__file__))[0]) + r'\dataBackup\domesticBackup\historyAssetsFileUpdateTime'
     # 用于存储每次对比文件更新的日志记录路径
-    checkUpdateLogs_path = os.path.split(os.path.realpath(__file__))[0] + r'\checkAssetsUpdateLogs'
+    checkUpdateLogs_path = os.path.dirname(os.path.split(os.path.realpath(__file__))[0]) + r'\result\domesticLogs\checkAssetsUpdateLogs'
     # 用于对比的历史文件名路径
     fileUpdateLogs_name_path = fileUpdateLogs_path + '\\' + 'Assets20250222_103734'
 
     # 找出“\client\MainProject\Assets\InBundle”文件夹下所有文件
     allFiles_InBundle = []
     assets_detailed_introduction_dict = {}
-    allFiles_InBundle,assets_detailed_introduction_dict = find_all_Assets_in_InBundle(allFiles_InBundle,excel_path, unity_root_path,assets_detailed_introduction_dict)
+    allFiles_InBundle,assets_detailed_introduction_dict = find_all_Assets_in_InBundle(allFiles_InBundle,scan_assets_excel_path, domestic_unity_mainProject_root_path,assets_detailed_introduction_dict)
     #print(assets_detailed_introduction_dict)
     # for file in allFiles_InBundle:
     #     print(file)

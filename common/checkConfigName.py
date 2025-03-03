@@ -1,13 +1,14 @@
-import os
-import re
 import json
 import logging
-import chardet
-from datetime import datetime
+import os
+import re
 from collections import defaultdict
-from typing import Dict, Set, List, Tuple, Any
 from dataclasses import dataclass
-from ScanAssetsUpdate.config import path_config
+from datetime import datetime
+from typing import Dict, Set, List, Tuple, Any
+
+import chardet
+from config import path_config
 
 # 配置日志
 logging.basicConfig(
