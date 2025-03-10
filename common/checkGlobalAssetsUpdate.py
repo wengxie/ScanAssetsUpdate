@@ -1,4 +1,4 @@
-# 国内资源更新扫描脚本
+# 海外资源更新扫描脚本
 
 # 按 Shift+F10 执行或将其替换为您的代码。
 # 按 双击 Shift 在所有地方搜索类、文件、工具窗口、操作和设置。
@@ -55,6 +55,13 @@ def record_file_update(storage_echo_filelastUpdate_time_list, allFiles_InBundle,
         file_name = file[last_slash_index + 1:]
         if file_name in assets_detailed_introduction_dict:
             file_detailed = assets_detailed_introduction_dict[file_name]
+        # 处理海外Avatar资源分人种的问题
+        elif file_name.replace("_black","") in assets_detailed_introduction_dict:
+            file_detailed = assets_detailed_introduction_dict[file_name.replace("_black","")] + "-黑人"
+        elif file_name.replace("_white","") in assets_detailed_introduction_dict:
+            file_detailed = assets_detailed_introduction_dict[file_name.replace("_white","")] + "-白人"
+        elif file_name.replace("_yellow","") in assets_detailed_introduction_dict:
+            file_detailed = assets_detailed_introduction_dict[file_name.replace("_yellow","")] + "-黄种人"
         else:
             file_detailed = '当前文件资源在excel没有对应的详细介绍'
         #print(file_detailed)
@@ -65,7 +72,7 @@ def record_file_update(storage_echo_filelastUpdate_time_list, allFiles_InBundle,
 
 # 将各个资源文件的最新更新时间保存下来，方便对比
 def write_fileUpdateLogs(fileUpdateLogs_path,storage_echo_filelastUpdate_time_tuple):
-    logsfile = fileUpdateLogs_path + '\\Assets' + time.strftime("%Y%m%d_%H%M%S", time.localtime(time.time()))
+    logsfile = fileUpdateLogs_path + '\\GlobalAssets' + time.strftime("%Y%m%d_%H%M%S", time.localtime(time.time()))
     with open(logsfile,'w',encoding='utf-8') as f:
         f.write("(\n")
         for echo_filelastUpdate_time in storage_echo_filelastUpdate_time_tuple:
@@ -112,7 +119,7 @@ def check_file_update(allFiles_InBundle,fileUpdateLogs_name_path,checkUpdateLogs
 
     print(*store_allfiles_logs)
 
-    checkUpdateLogsfile = checkUpdateLogs_path + '\\checkAssetsUpdateLog' + time.strftime("%Y%m%d_%H%M%S", time.localtime(time.time()))
+    checkUpdateLogsfile = checkUpdateLogs_path + '\\checkGlobalAssetsUpdateLog' + time.strftime("%Y%m%d_%H%M%S", time.localtime(time.time()))
     with open(checkUpdateLogsfile, 'w', encoding='utf-8') as f:
         f.writelines(store_allfiles_logs)
 
@@ -120,16 +127,16 @@ def check_file_update(allFiles_InBundle,fileUpdateLogs_name_path,checkUpdateLogs
 # 按装订区域中的绿色按钮以运行脚本。
 if __name__ == '__main__':
     # 存储扫描资源的excel路径
-    scan_assets_excel_path = os.path.dirname(os.path.dirname(os.path.realpath(__file__))) + r'\testcase\AssetsPath.xlsx'
+    scan_assets_excel_path = os.path.dirname(os.path.dirname(os.path.realpath(__file__))) + r'\testcase\GlobalAssetsPath.xlsx'
 
     #个人国内Unity工程路径下项目的MainProject路径,直接去修改config下的path_config文件
-    domestic_unity_mainProject_root_path = path_config.DOMESTIC_UNITY_ROOT_PATH + r'\client\MainProject'
+    domestic_unity_mainProject_root_path = path_config.GLOBAL_UNITY_ROOT_PATH + r'\client\MainProject'
     # 文件更新时间记录路径
-    fileUpdateLogs_path = os.path.dirname(os.path.split(os.path.realpath(__file__))[0]) + r'\dataBackup\domesticBackup\historyAssetsFileUpdateTime'
+    fileUpdateLogs_path = os.path.dirname(os.path.split(os.path.realpath(__file__))[0]) + r'\dataBackup\globalBackup\historyAssetsFileUpdateTime'
     # 用于存储每次对比文件更新的日志记录路径
-    checkUpdateLogs_path = os.path.dirname(os.path.split(os.path.realpath(__file__))[0]) + r'\result\domesticLogs\checkAssetsUpdateLogs'
+    checkUpdateLogs_path = os.path.dirname(os.path.split(os.path.realpath(__file__))[0]) + r'\result\globalLogs\checkAssetsUpdateLogs'
     # 用于对比的历史文件名路径
-    fileUpdateLogs_name_path = fileUpdateLogs_path + '\\' + 'Assets20250303_114651'
+    fileUpdateLogs_name_path = fileUpdateLogs_path + '\\' + 'GlobalAssets20250310_170104'
 
     # 找出“\client\MainProject\Assets\InBundle”文件夹下所有文件
     allFiles_InBundle = []
