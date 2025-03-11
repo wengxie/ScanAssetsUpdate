@@ -3,7 +3,7 @@ import os
 from typing import List, Tuple
 
 import chardet
-from ScanAssetsUpdate.config import path_config
+from config import path_config
 
 
 def read_file_with_chardet(file_path: str) -> str:
@@ -87,7 +87,8 @@ def main():
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
     # 提示用户输入需要查找的资源文件名
-    directory = path_config.EXCEL_PATH
+    excel_path = "datapool\ElementData\BaseData"
+    directory = os.path.join(path_config.DOMESTIC_UNITY_ROOT_PATH, excel_path)
     search_string = input("请输入要搜索的字符串: ").strip()
 
     if not directory or not search_string:

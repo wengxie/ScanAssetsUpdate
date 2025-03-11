@@ -15,7 +15,6 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        # logging.FileHandler('resource_check.log'),
         logging.StreamHandler()
     ]
 )
@@ -44,11 +43,11 @@ DIFF_REPORT_DIR = "../result/domesticLogs/checkConfigNameLogs/diff_reports"
 EXCLUSION_CONFIG = "../config/filter_config.json"
 
 def find_all_configuration_in_in_bundle(all_files_inbundle: Set[str], directory: str):
-    """收集目录下所有资源文件名和路径"""
+    """收集目录下所有资源文件名"""
     for root, _, files in os.walk(directory):
         for filename in files:
-            relative_path = os.path.relpath(os.path.join(root, filename), directory).replace(os.sep, '/')
-            all_files_inbundle.add(relative_path)
+            name_without_extension = os.path.splitext(filename)[0]
+            all_files_inbundle.add(name_without_extension)
 
 def normalize_data(data: Any) -> Any:
     """数据标准化"""
@@ -113,7 +112,6 @@ def validate_resource_name(name: str) -> bool:
     pattern = re.compile(r'^[A-Za-z][A-Za-z0-9_]*(?:/[A-Za-z][A-Za-z0-9_]*)*$')
     return bool(pattern.fullmatch(name))
 
-
 def load_exclusion_config(config_path: str) -> Dict:
     """加载排除配置"""
     try:
@@ -157,29 +155,12 @@ def parse_config_contents(content: str) -> List[Tuple[str, str]]:
     parsed_entries = pattern.findall(content)
 
     # 过滤掉显然不是资源路径的内容
-    # 假设资源路径不包含 HTML 标签及其他特殊字符，并且不包含占位符(%d, %s等)
-    # filtered_entries = [
-    #     (field, value) for field, value in parsed_entries
-    #     if (re.fullmatch(r'^[A-Za-z0-9_\/]+$', value)
-    #         and not re.search(r'%\w|<[^>]+>', value)
-    #         and not re.search(r'[\u4e00-\u9fff]', value)
-    #     )
-    # ]
     filtered_entries = [
         (field, value) for field, value in parsed_entries
         if re.fullmatch(r'^[A-Za-z0-9_\/\.]+$', value)
            and not re.search(r'%\w|<[^>]+>|[\u4e00-\u9fff]', value)
     ]
     return filtered_entries
-
-def is_path_in_bundle(path: str, bundle_resources: Set[str]) -> bool:
-    """逐级检查路径是否存在于资源包中"""
-    parts = path.split('/')
-    for i in range(1, len(parts) + 1):
-        sub_path = '/'.join(parts[:i])
-        if sub_path not in bundle_resources:
-            return False
-    return True
 
 def collect_missing_resources(config_dir: str, bundle_resources: Set[str], exclusions: Dict) -> Dict[ResourceEntry, Set[str]]:
     """收集缺失资源"""
@@ -220,23 +201,14 @@ def collect_missing_resources(config_dir: str, bundle_resources: Set[str], exclu
                 continue
 
             resource_path = value.strip()
-            if '/' in resource_path:
-                # 资源路径包含子路径，进行路径逐级检查
-                if not is_path_in_bundle(resource_path, bundle_resources):
-                    entry = ResourceEntry(field_value=field, resource_name=resource_path)
-                    findings[entry].add(filename)
-                    # logging.debug(f"缺失资源: {resource_path} 于字段 {field} 文件 {filename}")
-            else:
-                # 资源路径不包含子路径，进行简单的资源名验证和存在性检查
-                resource_name = os.path.splitext(resource_path)[0]
-                if not validate_resource_name(resource_name):
-                    # logging.warning(f"无效资源名: {resource_path} 来自 {filename}.{field}")
-                    continue
+            # 提取最后的文件名（去掉后缀）进行检查
+            resource_name = os.path.splitext(os.path.basename(resource_path))[0]
+            if not validate_resource_name(resource_name):
+                continue
 
-                if resource_name not in bundle_resources:
-                    entry = ResourceEntry(field_value=field, resource_name=resource_name)
-                    findings[entry].add(filename)
-                    # logging.debug(f"缺失资源: {resource_name} 于字段 {field} 文件 {filename}")
+            if resource_name not in bundle_resources:
+                entry = ResourceEntry(field_value=field, resource_name=resource_name)
+                findings[entry].add(filename)
 
     return findings
 
@@ -245,14 +217,16 @@ def main():
     print("扫描资源中，请稍后...")
 
     # 获取包内所有配置资源
+    inbundle_path = "client/MainProject/Assets/InBundle"
+    excel_path = "datapool/ElementData/BaseData"
     bundle_resources = set()
-    find_all_configuration_in_in_bundle(bundle_resources, path_config.INBUNDLE_DIRECTORY)
+    find_all_configuration_in_in_bundle(bundle_resources, os.path.join(path_config.DOMESTIC_UNITY_ROOT_PATH, inbundle_path))
 
     # 加载排除配置
     exclusions = load_exclusion_config(EXCLUSION_CONFIG)
 
     # 收集缺失资源
-    current_findings = collect_missing_resources(path_config.EXCEL_PATH, bundle_resources, exclusions)
+    current_findings = collect_missing_resources(os.path.join(path_config.DOMESTIC_UNITY_ROOT_PATH, excel_path), bundle_resources, exclusions)
 
     # 序列化结果并对文件名列表排序
     current_serialized = {entry.serialize(): sorted(list(files)) for entry, files in current_findings.items()}
