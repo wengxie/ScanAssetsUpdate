@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
-import datetime
 import os
 import re
-from collections import defaultdict
-from checkConfigurationTableUpdate import find_all_Configuration_in_InBundle
-from config import path_config
+import datetime
 
+from ScanAssetsUpdate.common.checkConfigurationTableUpdate import find_all_Configuration_in_InBundle
+from collections import defaultdict
+
+from ScanAssetsUpdate.config import path_config
 
 # --------------------------
 # 核心校验模块
@@ -170,17 +171,18 @@ def generate_diff_report(current_abnormal, current_dups, benchmark):
 # --------------------------
 def main():
     output_dir = "../result/domesticLogs/checkFileNameLogs"
-    benchmark_path = os.path.join(output_dir, "checkFileName.txt")
+    benchmark_path = os.path.join(output_dir, "checkFileName_global.txt")
     os.makedirs(output_dir, exist_ok=True)
 
     print(f"基准文件存储路径：{os.path.abspath(benchmark_path)}")  # 调试输出
 
     # 获取当前检测结果
-    inbundle_path = "client/MainProject/InBundle"
+    inbundle_path = "client/MainProject/Assets/InBundle"
+    assets_path = "client/MainProject/Assets"
     current_abnormal = get_abnormal_extensions(os.path.join(path_config.DOMESTIC_UNITY_ROOT_PATH, inbundle_path))
     current_dups = find_duplicate_prefab_files(
-        path_config.DOMESTIC_UNITY_ROOT_PATH,
-        ['client/MainProject/AssetsArtImport/Fish', 'client/MainProject/InBundle/Fish']
+        os.path.join(path_config.DOMESTIC_UNITY_ROOT_PATH, assets_path),
+        ['ArtImport/Fish', 'InBundle/Fish']
     )
 
     # 读取或初始化基准文件
