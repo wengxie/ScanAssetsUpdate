@@ -1,0 +1,1844 @@
+{
+  "activityRankTitleIcon;;ActivityCarnival_alt_leaderboard_bg": [
+    "ACTIVITY_DOUBLE_WEEK.data.txt"
+  ],
+  "pop_window_anim_sound;;se_effect_turkey_1": [
+    "ACTIVITY_REBRAND_MOONCAKE.data.txt"
+  ],
+  "pop_window_success_sound;;se_effect_turkey_2": [
+    "ACTIVITY_REBRAND_MOONCAKE.data.txt"
+  ],
+  "desc_short;;RULES": [
+    "ACTIVITY_RULES_LANGUAGE.data.txt"
+  ],
+  "missionGroupType;;MONOPOLY": [
+    "ADVERTS.data.txt"
+  ],
+  "missionGroupType;;HIDDEN_TREASURE": [
+    "ADVERTS.data.txt"
+  ],
+  "aquariumScene;;H01_USAWestern_Aquarium": [
+    "AQUARIUM_NEW_SETTING.data.txt"
+  ],
+  "scene;;H02_Aquarium": [
+    "AQUARIUM_NEW_SKIN.data.txt"
+  ],
+  "scene;;H03_Aquarium": [
+    "AQUARIUM_NEW_SKIN.data.txt"
+  ],
+  "scene;;H05_Aquarium": [
+    "AQUARIUM_NEW_SKIN.data.txt"
+  ],
+  "scene;;H06_Aquarium": [
+    "AQUARIUM_NEW_SKIN.data.txt"
+  ],
+  "scene;;H08_Aquarium": [
+    "AQUARIUM_NEW_SKIN.data.txt"
+  ],
+  "scene;;H07_Aquarium": [
+    "AQUARIUM_NEW_SKIN.data.txt"
+  ],
+  "t_name;;Spinner": [
+    "BAIT_LANGUAGE.data.txt"
+  ],
+  "t_name;;Minnow": [
+    "BAIT_LANGUAGE.data.txt"
+  ],
+  "t_name;;Longing": [
+    "BAIT_LANGUAGE.data.txt"
+  ],
+  "t_name;;Deeper": [
+    "BAIT_LANGUAGE.data.txt"
+  ],
+  "t_name;;Penetrate": [
+    "BAIT_LANGUAGE.data.txt"
+  ],
+  "t_name;;Mona": [
+    "BAIT_LANGUAGE.data.txt"
+  ],
+  "t_name;;Impossible": [
+    "BAIT_LANGUAGE.data.txt"
+  ],
+  "t_name;;Unreachable": [
+    "BAIT_LANGUAGE.data.txt"
+  ],
+  "t_name;;Utopia": [
+    "BAIT_LANGUAGE.data.txt"
+  ],
+  "t_name;;Forgotten": [
+    "BAIT_LANGUAGE.data.txt"
+  ],
+  "activityBPName;;ActivityCarnival_nad_tittle": [
+    "BATTLE_PASS_MAIN_2024.data.txt"
+  ],
+  "assetName;;newhook_TypeC_Hard01": [
+    "CURVE.data.txt"
+  ],
+  "divisionName;;Guppy": [
+    "DIVISION_LANGUAGE.data.txt"
+  ],
+  "divisionName;;Minnow": [
+    "DIVISION_LANGUAGE.data.txt"
+  ],
+  "divisionName;;Angler": [
+    "DIVISION_LANGUAGE.data.txt"
+  ],
+  "divisionName;;Fisher": [
+    "DIVISION_LANGUAGE.data.txt"
+  ],
+  "divisionName;;Mariner": [
+    "DIVISION_LANGUAGE.data.txt"
+  ],
+  "divisionName;;Captain": [
+    "DIVISION_LANGUAGE.data.txt"
+  ],
+  "divisionName;;Leviathan": [
+    "DIVISION_LANGUAGE.data.txt"
+  ],
+  "divisionName;;Poseidon": [
+    "DIVISION_LANGUAGE.data.txt"
+  ],
+  "rankText;;Divine": [
+    "DUEL_RANKING_LANGUAGE.data.txt"
+  ],
+  "seriesName;;BEGINNER": [
+    "DUEL_SERIES_LANGUAGE.data.txt"
+  ],
+  "seriesName;;Bronze": [
+    "DUEL_SERIES_LANGUAGE.data.txt"
+  ],
+  "seriesName;;Silver": [
+    "DUEL_SERIES_LANGUAGE.data.txt"
+  ],
+  "seriesName;;Gold": [
+    "DUEL_SERIES_LANGUAGE.data.txt"
+  ],
+  "seriesName;;Platinum": [
+    "DUEL_SERIES_LANGUAGE.data.txt"
+  ],
+  "seriesName;;Diamond": [
+    "DUEL_SERIES_LANGUAGE.data.txt"
+  ],
+  "seriesName;;Champion": [
+    "DUEL_SERIES_LANGUAGE.data.txt"
+  ],
+  "seriesName;;LEGENDARY": [
+    "DUEL_SERIES_LANGUAGE.data.txt"
+  ],
+  "t_description;;test": [
+    "EFFECT_LANGUAGE.data.txt",
+    "ITEM_MAIN_LANGUAGE.data.txt"
+  ],
+  "t_name;;test": [
+    "EFFECT_LANGUAGE.data.txt"
+  ],
+  "t_description;;testtesttest": [
+    "EFFECT_LANGUAGE.data.txt"
+  ],
+  "t_name;;testtesttest": [
+    "EFFECT_LANGUAGE.data.txt"
+  ],
+  "t_description;;Test": [
+    "EFFECT_LANGUAGE.data.txt"
+  ],
+  "t_name;;Test": [
+    "EFFECT_LANGUAGE.data.txt"
+  ],
+  "cardBG;;card_fish_001": [
+    "FISH.data.txt"
+  ],
+  "icon;;A04_card_SilverPerch": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A04_card_WhitePerch": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A04_card_Bullhead": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A04_card_Warmouth": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A04_card_SpottedGar": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A04_card_Paddlefish": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A04_card_Catfish": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A11_card_Lionfish": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A11_card_Ladyfish": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A11_card_PorgyScup": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A11_card_CaliforniaCorbina": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A11_card_Snook": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A11_card_YellowtailSnapper": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A11_card_CaribbeanQueenSnapper": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A11_card_Redfish": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A11_card_Sheepshead": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A11_card_Flounder": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A11_card_CaliforniaSheephead": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A11_card_Dolphin": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A11_card_RedSnapper": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A11_card_YellowfinTuna": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A11_card_WhiteMarlin": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A13_card_RedbreastSunfish": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A13_card_Shad": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A13_card_Crappie": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A13_card_Bowfin": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A13_card_LakeWhitefish": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A13_card_Walleye": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A13_card_HybridStripedBass": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A13_card_SockeyeSalmon": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A13_card_Rainbowtrout": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A13_card_DollyVarden": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A13_card_ArcticChar": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A13_card_ChumSalmon": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A13_card_NorthernPike": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A13_card_AtlanticSalmon": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A13_card_LakeTrout": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A03_card_LeatherJacket": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A03_card_BluethroatWrasse": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A03_card_CoralTrout": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A03_card_Sweetlips": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A03_card_GoldenTrevally": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A03_card_Pompano": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A03_card_Skipjack": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A03_card_SamsonFish": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A03_card_Hapuka": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A03_card_ShortbillSpearfish": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A03_card_TesselataEel": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A03_card_NurseShark": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A03_card_HumpheadWrasse": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A03_card_BullShark": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A03_card_ThresherShark": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A14_card_EuropeanPerch": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A14_card_VimbaBream": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A14_card_Bream": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A14_card_NaseFish": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A14_card_Grayling": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A14_card_Tilapia": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A14_card_Carp": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A14_card_EuropeanFlounder": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A14_card_Asp": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A14_card_MaraenaWhitefish": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A14_card_Caspianwhitefish": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A14_card_Burbot": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A14_card_Zander": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A14_card_RussianSturgeon": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A14_card_Beluga": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A17_card_JavelinGrunter": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A17_card_Morwong": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A17_card_ShortTailRedSnapper": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A17_card_RustyJobfish": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A17_card_IndianThreadfish": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A17_card_BluefinTuna": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A17_card_Kob": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A17_card_SpanishMackerel": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A17_card_Tarpon": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A17_card_BigeyeTuna": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A17_card_GiantTrevally": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A17_card_HammerheadShark": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A17_card_BlackfinTuna": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A17_card_BlackMarlin": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A17_card_MakoShark": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A07_card_AfricanPike": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A07_card_BulldogFish": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A07_card_BandedTilapia": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A07_card_AfricanBigEyeCatfish": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A07_card_GiraffeCatfish": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A07_card_ElephantFish": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A07_card_CongoYellowfish": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A07_card_NileTilapia": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A07_card_CornishJack": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A07_card_KambaCatfish": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A07_card_AfricanSharptoothCatfish": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A07_card_Vundu": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A07_card_AfricanTigerfish": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A07_card_GoliathTigerfish": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A07_card_NilePerch": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A08_card_CanaryWrasse": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A08_card_BartlettsAnthias": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A08_card_Anthias": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A08_card_Anchovy": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A08_card_Clowntang": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A08_card_ClownTrigger": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A08_card_Doctorfish": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A08_card_Wrasse": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A08_card_Pout": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A08_card_Kahawai": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A08_card_Trevally": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A08_card_NurseShark": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A08_card_RedSnapper": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A08_card_GiantTrevally": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A08_card_BlackTipShark": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A18_card_Lobster": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A18_card_Herring": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A18_card_AtlanticMackerel": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A18_card_CommonPandora": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A18_card_Haddock": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A18_card_Nursehound": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A18_card_Cod": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A18_card_Wolffish": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A18_card_Coalfish": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A18_card_Skipjack": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A18_card_CommonLing": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A18_card_CongerEel": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A18_card_Sailfish": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A18_card_Swordfish": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A18_card_GreenlandShark": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A02_card_FlagtailedProchilodus": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A02_card_Oscar": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A02_card_RedeyePiranha": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A02_card_Biara": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A02_card_Jacunda": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A02_card_OrinocoPeacockBass": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A02_card_Bicuda": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A02_card_SliverCroaker": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A02_card_RipsawCatfish": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A02_card_SliverArowana": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A02_card_Sorubim": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A02_card_Trahira": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A02_card_ElectricEel": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A02_card_Piraiba": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A02_card_Arapaima": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A19_card_Needlefish": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A19_card_SilverTrevally": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A19_card_Tailor": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A19_card_Pompano": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A19_card_HorseeyeJack": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A19_card_BigeyeTrevally": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A19_card_Wahoo": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A19_card_RainbowRunner": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A19_card_Milkfish": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A19_card_Skate": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A19_card_TigerShark": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A19_card_GiantOarfish": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A20_card_ArctogadusGlacialis": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A20_card_Kingcrab": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A20_card_Rockfish": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A20_card_Bonito": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A20_card_PinkSalmon": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A20_card_CohoSalmon": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A20_card_Pollock": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A20_card_BluefinTrevally": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A20_card_Salmon": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A20_card_Lingcod": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A20_card_Halibut": [
+    "FISHCARD.data.txt"
+  ],
+  "icon;;A20_card_Squid": [
+    "FISHCARD.data.txt"
+  ],
+  "displayBanner;;home_banner_A04": [
+    "FISHERIES.data.txt"
+  ],
+  "battleScene;;A04_Texas": [
+    "FISHERIES.data.txt"
+  ],
+  "albumBG;;BackGround02": [
+    "FISHERIES.data.txt"
+  ],
+  "displayBanner;;home_banner_A11": [
+    "FISHERIES.data.txt",
+    "FISHERIES_ACTIVITY.data.txt"
+  ],
+  "battleScene;;A11_KeyWest": [
+    "FISHERIES.data.txt"
+  ],
+  "albumBG;;BackGround03": [
+    "FISHERIES.data.txt"
+  ],
+  "displayBanner;;home_banner_A13": [
+    "FISHERIES.data.txt"
+  ],
+  "battleScene;;A13_Campbell": [
+    "FISHERIES.data.txt"
+  ],
+  "displayBanner;;home_banner_A03": [
+    "FISHERIES.data.txt"
+  ],
+  "battleScene;;A03_GreatBarrierReef": [
+    "FISHERIES.data.txt"
+  ],
+  "dlcName;;DLC_FISHERY_TheGreatBarrierReef": [
+    "FISHERIES.data.txt"
+  ],
+  "displayBanner;;home_banner_A14": [
+    "FISHERIES.data.txt"
+  ],
+  "battleScene;;A14_Volga": [
+    "FISHERIES.data.txt"
+  ],
+  "albumBG;;BackGround04": [
+    "FISHERIES.data.txt"
+  ],
+  "dlcName;;DLC_FISHERY_Volga": [
+    "FISHERIES.data.txt"
+  ],
+  "displayBanner;;home_banner_A17": [
+    "FISHERIES.data.txt"
+  ],
+  "battleScene;;A17_Komodo": [
+    "FISHERIES.data.txt"
+  ],
+  "albumBG;;BackGround01": [
+    "FISHERIES.data.txt"
+  ],
+  "dlcName;;DLC_FISHERY_Komodo": [
+    "FISHERIES.data.txt"
+  ],
+  "displayBanner;;home_banner_A07": [
+    "FISHERIES.data.txt"
+  ],
+  "battleScene;;A07_CongoRiver": [
+    "FISHERIES.data.txt"
+  ],
+  "dlcName;;DLC_FISHERY_CongoRiver": [
+    "FISHERIES.data.txt"
+  ],
+  "displayBanner;;home_banner_A08": [
+    "FISHERIES.data.txt"
+  ],
+  "battleScene;;A08_CaboSanLucas": [
+    "FISHERIES.data.txt"
+  ],
+  "dlcName;;DLC_FISHERY_CaboSanLucas": [
+    "FISHERIES.data.txt"
+  ],
+  "displayBanner;;home_banner_A18": [
+    "FISHERIES.data.txt"
+  ],
+  "battleScene;;A18_Soroya": [
+    "FISHERIES.data.txt"
+  ],
+  "dlcName;;DLC_FISHERY_Soroya": [
+    "FISHERIES.data.txt"
+  ],
+  "displayBanner;;home_banner_A02": [
+    "FISHERIES.data.txt"
+  ],
+  "battleScene;;A02_Amazon": [
+    "FISHERIES.data.txt"
+  ],
+  "dlcName;;DLC_FISHERY_Amazon": [
+    "FISHERIES.data.txt"
+  ],
+  "displayBanner;;home_banner_A19": [
+    "FISHERIES.data.txt"
+  ],
+  "battleScene;;A19_PacificOcean": [
+    "FISHERIES.data.txt"
+  ],
+  "dlcName;;DLC_FISHERY_PacificOcean": [
+    "FISHERIES.data.txt"
+  ],
+  "displayBanner;;home_banner_A20": [
+    "FISHERIES.data.txt"
+  ],
+  "battleScene;;A20_BeringSea": [
+    "FISHERIES.data.txt"
+  ],
+  "dlcName;;DLC_FISHERY_BeringSea": [
+    "FISHERIES.data.txt"
+  ],
+  "displayicon;;icon_fisheries_A09": [
+    "FISHERIES.data.txt"
+  ],
+  "displayBlurBG;;bg_fisheries_blur_A09": [
+    "FISHERIES.data.txt"
+  ],
+  "displayBanner;;home_banner_A09": [
+    "FISHERIES.data.txt"
+  ],
+  "displayLoadingPic;;loading_fisheries_A09": [
+    "FISHERIES.data.txt"
+  ],
+  "cardPackIcon;;FishCard_fisheries_A09": [
+    "FISHERIES.data.txt"
+  ],
+  "battleScene;;A09_LakeSaintClair": [
+    "FISHERIES.data.txt"
+  ],
+  "displayBanner;;home_banner_A01": [
+    "FISHERIES.data.txt"
+  ],
+  "battleScene;;A01_Hawaii": [
+    "FISHERIES.data.txt"
+  ],
+  "displayBanner;;home_banner_A06": [
+    "FISHERIES.data.txt"
+  ],
+  "battleScene;;A06_Bermuda": [
+    "FISHERIES.data.txt"
+  ],
+  "displayicon;;icon_fisheries_A22": [
+    "FISHERIES.data.txt"
+  ],
+  "displayBlurBG;;bg_fisheries_blur_A22": [
+    "FISHERIES.data.txt"
+  ],
+  "displayBanner;;home_banner_A22": [
+    "FISHERIES.data.txt"
+  ],
+  "displayLoadingPic;;loading_fisheries_A22": [
+    "FISHERIES.data.txt"
+  ],
+  "cardPackIcon;;FishCard_fisheries_A22": [
+    "FISHERIES.data.txt"
+  ],
+  "battleScene;;A22_Nile": [
+    "FISHERIES.data.txt"
+  ],
+  "displayBanner;;home_banner_A27": [
+    "FISHERIES.data.txt"
+  ],
+  "battleScene;;A27_TheXishaIslands": [
+    "FISHERIES.data.txt"
+  ],
+  "dlcName;;DLC_FISHERY_XiSha": [
+    "FISHERIES.data.txt"
+  ],
+  "displayBanner;;home_banner_A30": [
+    "FISHERIES.data.txt"
+  ],
+  "battleScene;;A30_SeineRiver": [
+    "FISHERIES.data.txt",
+    "FISHERIES_ACTIVITY.data.txt"
+  ],
+  "dlcName;;DLC_FISHERY_SeineRiver": [
+    "FISHERIES.data.txt",
+    "FISHERIES_ACTIVITY.data.txt"
+  ],
+  "displayBanner;;home_banner_A21": [
+    "FISHERIES.data.txt"
+  ],
+  "battleScene;;A21_Malta": [
+    "FISHERIES.data.txt"
+  ],
+  "dlcName;;DLC_FISHERY_Malta": [
+    "FISHERIES.data.txt"
+  ],
+  "displayBanner;;home_banner_A28": [
+    "FISHERIES.data.txt"
+  ],
+  "battleScene;;A28_Nile": [
+    "FISHERIES.data.txt",
+    "FISHERIES_ACTIVITY.data.txt"
+  ],
+  "dlcName;;DLC_FISHERY_Nile": [
+    "FISHERIES.data.txt",
+    "FISHERIES_ACTIVITY.data.txt"
+  ],
+  "displayBanner;;home_banner_A29": [
+    "FISHERIES.data.txt"
+  ],
+  "battleScene;;A29_NanjiIslands": [
+    "FISHERIES.data.txt",
+    "FISHERIES_ACTIVITY.data.txt"
+  ],
+  "dlcName;;DLC_FISHERY_NanjiIslands": [
+    "FISHERIES.data.txt",
+    "FISHERIES_ACTIVITY.data.txt"
+  ],
+  "displayBanner;;home_banner_A32": [
+    "FISHERIES.data.txt"
+  ],
+  "battleScene;;A32_WuSuLiJiang": [
+    "FISHERIES.data.txt",
+    "FISHERIES_ACTIVITY.data.txt"
+  ],
+  "dlcName;;DLC_FISHERY_WuSuLiJiang": [
+    "FISHERIES.data.txt",
+    "FISHERIES_ACTIVITY.data.txt"
+  ],
+  "displayBanner;;home_banner_A34": [
+    "FISHERIES.data.txt"
+  ],
+  "battleScene;;A34_Altay": [
+    "FISHERIES.data.txt",
+    "FISHERIES_ACTIVITY.data.txt"
+  ],
+  "dlcName;;DLC_FISHERY_Altay": [
+    "FISHERIES.data.txt",
+    "FISHERIES_ACTIVITY.data.txt"
+  ],
+  "battleScene;;B01_Event": [
+    "FISHERIES_ACTIVITY.data.txt"
+  ],
+  "dlcName;;DLC_FISHERY_ACTIVITY_1": [
+    "FISHERIES_ACTIVITY.data.txt"
+  ],
+  "battleScene;;B02_Event": [
+    "FISHERIES_ACTIVITY.data.txt"
+  ],
+  "dlcName;;DLC_FISHERY_ACTIVITY_2": [
+    "FISHERIES_ACTIVITY.data.txt"
+  ],
+  "battleScene;;B03_Event": [
+    "FISHERIES_ACTIVITY.data.txt"
+  ],
+  "dlcName;;DLC_FISHERY_ACTIVITY_3": [
+    "FISHERIES_ACTIVITY.data.txt"
+  ],
+  "battleScene;;B04_Event": [
+    "FISHERIES_ACTIVITY.data.txt"
+  ],
+  "dlcName;;DLC_FISHERY_ACTIVITY_4": [
+    "FISHERIES_ACTIVITY.data.txt"
+  ],
+  "battleScene;;B06_Event": [
+    "FISHERIES_ACTIVITY.data.txt"
+  ],
+  "dlcName;;DLC_FISHERY_ACTIVITY_6": [
+    "FISHERIES_ACTIVITY.data.txt"
+  ],
+  "displayLoadingPic;;loading_fisheries_B10": [
+    "FISHERIES_ACTIVITY.data.txt"
+  ],
+  "t_name;;Altai": [
+    "FISHERIES_ACTIVITY_LANGUAGE.data.txt",
+    "FISHERIES_LANGUAGE.data.txt"
+  ],
+  "t_description;;Altai": [
+    "FISHERIES_ACTIVITY_LANGUAGE.data.txt"
+  ],
+  "t_name;;Pixie": [
+    "FISHING_ROD_LANGUAGE.data.txt"
+  ],
+  "t_name;;Drift": [
+    "FISHING_ROD_LANGUAGE.data.txt"
+  ],
+  "t_name;;Sunset": [
+    "FISHING_ROD_LANGUAGE.data.txt"
+  ],
+  "t_name;;Amber": [
+    "FISHING_ROD_LANGUAGE.data.txt"
+  ],
+  "t_name;;Hanabi": [
+    "FISHING_ROD_LANGUAGE.data.txt"
+  ],
+  "t_name;;Nereus": [
+    "FISHING_ROD_LANGUAGE.data.txt"
+  ],
+  "t_name;;Serenity": [
+    "FISHING_ROD_LANGUAGE.data.txt"
+  ],
+  "t_name;;Tarantula": [
+    "FISHING_ROD_LANGUAGE.data.txt"
+  ],
+  "t_name;;Ballista": [
+    "FISHING_ROD_LANGUAGE.data.txt"
+  ],
+  "t_name;;Momijigari": [
+    "FISHING_ROD_LANGUAGE.data.txt"
+  ],
+  "t_name;;Fomalhaut": [
+    "FISHING_ROD_LANGUAGE.data.txt"
+  ],
+  "t_name;;Wonderland": [
+    "FISHING_ROD_LANGUAGE.data.txt"
+  ],
+  "iconName;;item_baitbox_3": [
+    "ITEM_MAIN.data.txt"
+  ],
+  "iconName;;item_baitbox_4": [
+    "ITEM_MAIN.data.txt"
+  ],
+  "iconName;;item_baitbox_5": [
+    "ITEM_MAIN.data.txt"
+  ],
+  "iconName;;item_baitbox_1": [
+    "ITEM_MAIN.data.txt"
+  ],
+  "iconName;;item_baitbox_2": [
+    "ITEM_MAIN.data.txt"
+  ],
+  "t_missiontype;;Achievements": [
+    "MISSION_LANGUAGE.data.txt"
+  ],
+  "t_missiondes;;test": [
+    "MISSION_LANGUAGE.data.txt",
+    "REPEATABLE_CHALLENGE_LANGUAGE.data.txt"
+  ],
+  "t_missiontype;;Daily": [
+    "MISSION_LANGUAGE.data.txt"
+  ],
+  "textLanguage;;Layla": [
+    "NBG_TEXT_LANGUAGE.data.txt"
+  ],
+  "textLanguage;;Leaderboard": [
+    "NBG_TEXT_LANGUAGE.data.txt"
+  ],
+  "textLanguage;;DEREK": [
+    "NBG_TEXT_LANGUAGE.data.txt"
+  ],
+  "labelName;;Cosmetic": [
+    "OUTFIT_LABEL_LANGUAGE.data.txt"
+  ],
+  "labelName;;Motion": [
+    "OUTFIT_LABEL_LANGUAGE.data.txt"
+  ],
+  "labelName;;Action": [
+    "OUTFIT_LABEL_LANGUAGE.data.txt"
+  ],
+  "labelName;;Exclusive": [
+    "OUTFIT_LABEL_LANGUAGE.data.txt"
+  ],
+  "maleAssetName;;male_001_hand": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "maleHandAssetName;;male_001_hand_1p": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "gloveDisplayName;;male_001_hand_1p": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "maleAssetName;;male_002_hand": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "maleHandAssetName;;male_002_hand_1p": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "gloveDisplayName;;male_002_hand_1p": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "femaleAssetName;;female_003_head": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "femaleAssetName;;female_003_upperbody": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "femaleArmAssetName;;female_003_arm_1p": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "femaleAssetName;;female_003_lowerbody": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "femaleHandAssetName;;female_003_hand_1p": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "maleAssetName;;male_004_head": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "maleAssetName;;male_004_upperbody": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "maleArmAssetName;;male_004_arm_1p": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "maleAssetName;;male_004_lowerbody": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "maleAssetName;;male_005_head": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "maleAssetName;;male_005_upperbody": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "maleArmAssetName;;male_005_arm_1p": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "maleAssetName;;male_005_lowerbody": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "maleAssetName;;male_006_hand": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "maleHandAssetName;;male_006_hand_1p": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "gloveDisplayName;;male_006_hand_1p": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "maleAssetName;;male_007_head": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "maleAssetName;;male_007_upperbody": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "maleArmAssetName;;male_007_arm_1p": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "maleAssetName;;male_007_lowerbody": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "maleAssetName;;male_009_hand": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "maleHandAssetName;;male_009_hand_1p": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "femaleAssetName;;female_009_hand": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "femaleHandAssetName;;female_009_hand_1p": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "gloveDisplayName;;male_009_hand_1p": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "maleAssetName;;male_010_head": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "femaleAssetName;;female_010_head": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "maleAssetName;;male_010_upperbody": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "maleArmAssetName;;male_010_arm_1p": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "femaleAssetName;;female_010_upperbody": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "femaleArmAssetName;;female_010_arm_1p": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "maleAssetName;;male_010_lowerbody": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "femaleAssetName;;female_010_lowerbody": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "maleAssetName;;male_010_hand": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "maleHandAssetName;;male_010_hand_1p": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "femaleAssetName;;female_010_hand": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "femaleHandAssetName;;female_010_hand_1p": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "gloveDisplayName;;male_010_hand_1p": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "maleAssetName;;male_017_hand": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "maleHandAssetName;;male_017_hand_1p": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "femaleAssetName;;female_017_hand": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "femaleHandAssetName;;female_017_hand_1p": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "gloveDisplayName;;male_017_hand_1p": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "maleAssetName;;male_020_hand": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "maleHandAssetName;;male_020_hand_1p": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "femaleAssetName;;female_020_hand": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "femaleHandAssetName;;female_020_hand_1p": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "gloveDisplayName;;male_020_hand_1p": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "maleAssetName;;male_015_head": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "femaleAssetName;;female_015_head": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "maleAssetName;;male_015_upperbody": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "maleArmAssetName;;male_015_arm_1p": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "femaleAssetName;;female_015_upperbody": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "femaleArmAssetName;;female_015_arm_1p": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "maleAssetName;;male_015_lowerbody": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "femaleAssetName;;female_015_lowerbody": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "maleAssetName;;male_022_role": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "femaleAssetName;;female_022_role": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "maleAssetName;;male_018_head": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "femaleAssetName;;female_018_head": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "maleAssetName;;male_018_upperbody": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "maleArmAssetName;;male_018_arm_1p": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "femaleAssetName;;female_018_upperbody": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "femaleArmAssetName;;female_018_arm_1p": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "maleAssetName;;male_018_lowerbody": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "femaleAssetName;;female_018_lowerbody": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "maleAssetName;;male_021_head": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "femaleAssetName;;female_021_head": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "maleAssetName;;male_021_upperbody": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "maleArmAssetName;;male_021_arm_1p": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "femaleAssetName;;female_021_upperbody": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "femaleArmAssetName;;female_021_arm_1p": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "maleAssetName;;male_021_lowerbody": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "femaleAssetName;;female_021_lowerbody": [
+    "OUTFIT_SKIN.data.txt"
+  ],
+  "outfitName;;Thunderstrike": [
+    "OUTFIT_SKIN_LANGUAGE.data.txt"
+  ],
+  "outfitName;;Champion": [
+    "OUTFIT_SKIN_LANGUAGE.data.txt"
+  ],
+  "outfitName;;Gale": [
+    "OUTFIT_SKIN_LANGUAGE.data.txt"
+  ],
+  "outfitName;;Caution": [
+    "OUTFIT_SKIN_LANGUAGE.data.txt"
+  ],
+  "outfitTypeName;;Outfit": [
+    "OUTFIT_SKIN_LANGUAGE.data.txt"
+  ],
+  "outfitTypeName;;Top": [
+    "OUTFIT_SKIN_LANGUAGE.data.txt"
+  ],
+  "outfitTypeName;;Bottoms": [
+    "OUTFIT_SKIN_LANGUAGE.data.txt"
+  ],
+  "outfitTypeName;;Gloves": [
+    "OUTFIT_SKIN_LANGUAGE.data.txt"
+  ],
+  "charaType;;Caribbean": [
+    "OUTFIT_SUIT.data.txt"
+  ],
+  "suitName;;Pirate": [
+    "OUTFIT_SUIT_LANGUAGE.data.txt"
+  ],
+  "description;;Pirate": [
+    "OUTFIT_SUIT_LANGUAGE.data.txt"
+  ],
+  "displayIcon;;events_monopoly_popup_event_itemtop1": [
+    "PAYMENT_GIFT.data.txt"
+  ],
+  "displayIcon;;events_monopoly_popup_event_itemtop2": [
+    "PAYMENT_GIFT.data.txt"
+  ],
+  "displayIcon;;events_monopoly_popup_event_itemtop3": [
+    "PAYMENT_GIFT.data.txt"
+  ],
+  "t_gift;;Diamond": [
+    "PAYMENT_GIFT_LANGUAGE.data.txt"
+  ],
+  "t_gift;;Test": [
+    "PAYMENT_GIFT_LANGUAGE.data.txt"
+  ],
+  "t_gift;;test": [
+    "PAYMENT_GIFT_LANGUAGE.data.txt"
+  ],
+  "name;;US": [
+    "RANKAREA_GLOBAL.data.txt",
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "state_id;;Alabama": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "state_id;;Alaska": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "state_id;;Arizona": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "state_id;;Arkansas": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "state_id;;California": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "state_id;;Colorado": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "state_id;;Connecticut": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "state_id;;Delaware": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "state_id;;Florida": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "state_id;;Georgia": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "state_id;;Idaho": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "state_id;;Illinois": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "state_id;;Indiana": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "state_id;;Iowa": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "state_id;;Kansas": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "state_id;;Kentucky": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "state_id;;Louisiana": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "state_id;;Maine": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "state_id;;Maryland": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "state_id;;Massachusetts": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "state_id;;Michigan": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "state_id;;Minnesota": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "state_id;;Mississippi": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "state_id;;Missouri": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "state_id;;Montana": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "state_id;;Nebraska": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "state_id;;Nevada": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "state_id;;Ohio": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "state_id;;Oklahoma": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "state_id;;Oregon": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "state_id;;Pennsylvania": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "state_id;;Tennessee": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "state_id;;Utah": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "state_id;;Vermont": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "state_id;;Virginia": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "state_id;;Washington": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "state_id;;Wisconsin": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "state_id;;Wyoming": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "name;;Chile": [
+    "RANKAREA_GLOBAL.data.txt",
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "country_id;;Chile": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "name;;Turkey": [
+    "RANKAREA_GLOBAL.data.txt",
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "country_id;;Turkey": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "name;;Austria": [
+    "RANKAREA_GLOBAL.data.txt",
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "country_id;;Austria": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "name;;Belgium": [
+    "RANKAREA_GLOBAL.data.txt",
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "country_id;;Belgium": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "name;;Hungary": [
+    "RANKAREA_GLOBAL.data.txt",
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "country_id;;Hungary": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "name;;Argentina": [
+    "RANKAREA_GLOBAL.data.txt",
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "country_id;;Argentina": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "name;;Switzerland": [
+    "RANKAREA_GLOBAL.data.txt",
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "country_id;;Switzerland": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "name;;Sweden": [
+    "RANKAREA_GLOBAL.data.txt",
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "country_id;;Sweden": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "name;;Norway": [
+    "RANKAREA_GLOBAL.data.txt",
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "country_id;;Norway": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "name;;Peru": [
+    "RANKAREA_GLOBAL.data.txt",
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "country_id;;Peru": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "name;;Denmark": [
+    "RANKAREA_GLOBAL.data.txt",
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "country_id;;Denmark": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "name;;Thailand": [
+    "RANKAREA_GLOBAL.data.txt",
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "country_id;;Thailand": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "name;;Greece": [
+    "RANKAREA_GLOBAL.data.txt",
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "country_id;;Greece": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "name;;Romania": [
+    "RANKAREA_GLOBAL.data.txt",
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "country_id;;Romania": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "name;;Netherlands": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "name;;Mexico": [
+    "RANKAREA_GLOBAL.data.txt",
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "country_id;;Mexico": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "name;;Italy": [
+    "RANKAREA_GLOBAL.data.txt",
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "country_id;;Italy": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "name;;Canada": [
+    "RANKAREA_GLOBAL.data.txt",
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "country_id;;Canada": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "name;;Australia": [
+    "RANKAREA_GLOBAL.data.txt",
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "country_id;;Australia": [
+    "RANKAREA_GLOBAL.data.txt"
+  ],
+  "area_name;;Global": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Alabama": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Alaska": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Arizona": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Arkansas": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;California": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Colorado": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Connecticut": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Delaware": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Florida": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Georgia": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Idaho": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Illinois": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Indiana": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Iowa": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Kansas": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Kentucky": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Louisiana": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Maine": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Maryland": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Massachusetts": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Michigan": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Minnesota": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Mississippi": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Missouri": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Montana": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Nebraska": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Nevada": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;NewHampshire": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;NewJersey": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;NewMexico": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;NewYork": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;NorthCarolina": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;NorthDakota": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Ohio": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Oklahoma": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Oregon": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Pennsylvania": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;RhodeIsland": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;SouthCarolina": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;SouthDakota": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Tennessee": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Utah": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Vermont": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Virginia": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Washington": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;WestVirginia": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Wisconsin": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Wyoming": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Chile": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Turkey": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Austria": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Belgium": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Hungary": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Argentina": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Switzerland": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Sweden": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Norway": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Peru": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Denmark": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Thailand": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "name;;NewZealand": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Greece": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Romania": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "name;;SouthAfrica": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Mexico": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Italy": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Canada": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "area_name;;Australia": [
+    "RANKAREA_GLOBAL_LANGUAGE.data.txt"
+  ],
+  "itemIcon;;gragon_gu_1": [
+    "RESOURCE.data.txt"
+  ],
+  "t_displayname;;Drift": [
+    "SHOP_GOODS_LANGUAGE.data.txt"
+  ],
+  "t_displayname;;Pixie": [
+    "SHOP_GOODS_LANGUAGE.data.txt"
+  ],
+  "t_displayname;;Sunset": [
+    "SHOP_GOODS_LANGUAGE.data.txt"
+  ],
+  "t_displayname;;Spinner": [
+    "SHOP_GOODS_LANGUAGE.data.txt"
+  ],
+  "t_displayname;;Minnow": [
+    "SHOP_GOODS_LANGUAGE.data.txt"
+  ],
+  "t_displayname;;Serenity": [
+    "SHOP_GOODS_LANGUAGE.data.txt"
+  ],
+  "t_displayname;;Nereus": [
+    "SHOP_GOODS_LANGUAGE.data.txt"
+  ],
+  "t_displayname;;Hanabi": [
+    "SHOP_GOODS_LANGUAGE.data.txt"
+  ],
+  "t_displayname;;Amber": [
+    "SHOP_GOODS_LANGUAGE.data.txt"
+  ],
+  "t_displayname;;Tarantula": [
+    "SHOP_GOODS_LANGUAGE.data.txt"
+  ],
+  "t_displayname;;Fomalhaut": [
+    "SHOP_GOODS_LANGUAGE.data.txt"
+  ],
+  "t_displayname;;Ballista": [
+    "SHOP_GOODS_LANGUAGE.data.txt"
+  ],
+  "t_displayname;;Wonderland": [
+    "SHOP_GOODS_LANGUAGE.data.txt"
+  ],
+  "t_displayname;;Momijigari": [
+    "SHOP_GOODS_LANGUAGE.data.txt"
+  ],
+  "t_displayname;;Longing": [
+    "SHOP_GOODS_LANGUAGE.data.txt"
+  ],
+  "t_displayname;;Deeper": [
+    "SHOP_GOODS_LANGUAGE.data.txt"
+  ],
+  "t_displayname;;Penetrate": [
+    "SHOP_GOODS_LANGUAGE.data.txt"
+  ],
+  "t_displayname;;Mona": [
+    "SHOP_GOODS_LANGUAGE.data.txt"
+  ],
+  "t_displayname;;Coins": [
+    "SHOP_GOODS_LANGUAGE.data.txt"
+  ],
+  "skillName;;Fierce": [
+    "SKILL_LANGUAGE.data.txt"
+  ],
+  "t_displayname;;Resource": [
+    "STORE_SHOW_LANGUAGE.data.txt"
+  ],
+  "t_displayname;;Diamond": [
+    "STORE_SHOW_LANGUAGE.data.txt"
+  ],
+  "t_displayname;;Gear": [
+    "STORE_SHOW_LANGUAGE.data.txt"
+  ],
+  "t_displayname;;Fishcard": [
+    "STORE_SHOW_LANGUAGE.data.txt"
+  ],
+  "t_displayname;;Event": [
+    "STORE_SHOW_LANGUAGE.data.txt"
+  ],
+  "t_displayname;;Fashion": [
+    "STORE_SHOW_LANGUAGE.data.txt"
+  ],
+  "t_displayname;;Token": [
+    "STORE_SHOW_LANGUAGE.data.txt"
+  ],
+  "stepImg;;tutorial_01": [
+    "TIPS_TUTORIAL.data.txt"
+  ],
+  "stepImg;;tutorial_02": [
+    "TIPS_TUTORIAL.data.txt"
+  ],
+  "stepImg;;tutorial_03": [
+    "TIPS_TUTORIAL.data.txt"
+  ],
+  "stepImg;;tutorial_04": [
+    "TIPS_TUTORIAL.data.txt"
+  ]
+}
