@@ -78,16 +78,6 @@ def search_in_directory(directory: str, search_string: str):
 
     return result
 
-def select_benchmark():
-    """选择国内/海外基准文件"""
-    input_string = input("请选择国内或海外，国内为1，海外为2：").strip()
-    if input_string == "1":
-        return (path_config.DOMESTIC_UNITY_ROOT_PATH)
-    elif input_string == "2":
-        return (path_config.GLOBAL_UNITY_ROOT_PATH)
-    else:
-        print("输入有误，请输入对应数字！")
-        return select_benchmark()
 
 def main():
     """
@@ -98,8 +88,7 @@ def main():
 
     # 提示用户输入需要查找的资源文件名
     excel_path = "datapool\ElementData\BaseData"
-    UNITY_ROOT_PATH = select_benchmark()
-    directory = os.path.join(UNITY_ROOT_PATH, excel_path)
+    directory = os.path.join(path_config.DOMESTIC_UNITY_ROOT_PATH, excel_path)
     search_string = input("请输入要搜索的字符串: ").strip()
 
     if not directory or not search_string:
