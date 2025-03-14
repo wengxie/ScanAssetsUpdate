@@ -6,7 +6,6 @@ from collections import defaultdict
 from dataclasses import dataclass
 from datetime import datetime
 from typing import Dict, Set, List, Tuple, Any
-
 import chardet
 from config import path_config
 
@@ -38,7 +37,7 @@ class ResourceEntry:
             return None
 
 # 配置路径
-BASELINE_FILE = "../result/domesticLogs/checkConfigNameLogs/config_baseline.json"
+BASELINE_Path = "../result/domesticLogs/checkConfigNameLogs"
 DIFF_REPORT_DIR = "../result/domesticLogs/checkConfigNameLogs/diff_reports"
 EXCLUSION_CONFIG = "../config/filter_config.json"
 
@@ -212,21 +211,33 @@ def collect_missing_resources(config_dir: str, bundle_resources: Set[str], exclu
 
     return findings
 
+def select_benchmark():
+    """选择国内/海外基准文件"""
+    input_string = input("请选择国内或海外，国内为1，海外为2：").strip()
+    if input_string == "1":
+        return (os.path.join(BASELINE_Path, "config_baseline.json"), path_config.DOMESTIC_UNITY_ROOT_PATH)
+    elif input_string == "2":
+        return (os.path.join(BASELINE_Path, "config_baseline_global.json"), path_config.GLOBAL_UNITY_ROOT_PATH)
+    else:
+        print("输入有误，请输入对应数字！")
+        return select_benchmark()
+
 def main():
     """主执行流程"""
+    BASELINE_FILE, UNITY_ROOT_PATH = select_benchmark()
     print("扫描资源中，请稍后...")
 
     # 获取包内所有配置资源
     inbundle_path = "client/MainProject/Assets/InBundle"
     excel_path = "datapool/ElementData/BaseData"
     bundle_resources = set()
-    find_all_configuration_in_in_bundle(bundle_resources, os.path.join(path_config.DOMESTIC_UNITY_ROOT_PATH, inbundle_path))
+    find_all_configuration_in_in_bundle(bundle_resources, os.path.join(UNITY_ROOT_PATH, inbundle_path))
 
     # 加载排除配置
     exclusions = load_exclusion_config(EXCLUSION_CONFIG)
 
     # 收集缺失资源
-    current_findings = collect_missing_resources(os.path.join(path_config.DOMESTIC_UNITY_ROOT_PATH, excel_path), bundle_resources, exclusions)
+    current_findings = collect_missing_resources(os.path.join(UNITY_ROOT_PATH, excel_path), bundle_resources, exclusions)
 
     # 序列化结果并对文件名列表排序
     current_serialized = {entry.serialize(): sorted(list(files)) for entry, files in current_findings.items()}
