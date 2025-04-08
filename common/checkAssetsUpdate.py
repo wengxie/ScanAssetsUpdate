@@ -24,6 +24,7 @@ def find_all_Assets_in_InBundle(allFiles_InBundle,scan_assets_excel_path,domesti
     _, indices = numpy.unique(excel_dataframe['主路径'].dropna().to_numpy(), return_index=True)
     # 将路径数组在不改变元素先后顺序的情况下去重
     excel_dataframe_path_array = excel_dataframe['主路径'].dropna().to_numpy()[numpy.sort(indices)]
+    print(excel_dataframe_path_array)
 
     # 将所有找到的文件存在列表中
     for items in excel_dataframe_path_array.flat:
@@ -129,7 +130,7 @@ if __name__ == '__main__':
     # 用于存储每次对比文件更新的日志记录路径
     checkUpdateLogs_path = os.path.dirname(os.path.split(os.path.realpath(__file__))[0]) + r'\result\domesticLogs\checkAssetsUpdateLogs'
     # 用于对比的历史文件名路径
-    fileUpdateLogs_name_path = fileUpdateLogs_path + '\\' + 'Assets20250303_114651'
+    fileUpdateLogs_name_path = fileUpdateLogs_path + '\\' + 'Assets20250308_145841'
 
     # 找出“\client\MainProject\Assets\InBundle”文件夹下所有文件
     allFiles_InBundle = []
