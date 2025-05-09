@@ -1,39 +1,46 @@
-### **#环境依赖**
+## 环境依赖
 
-1.终端下执行pip install -r requirements.txt 安装依赖包
+终端下执行pip install -r requirements.txt 安装依赖包
 
-### **#目录结构描述**
+## 目录结构描述
+### common 
+该目录下是通用的资源扫描脚本  
+- checkAssetsUpdate：检测国服项目特定的资源文件是否更新、删除、修改
+- CheckConfigName：资源文件存在性检查脚本，用于检测配置表中已配置的资源在InBundle文件中是否存在（严格区分大小写）
+- CheckConfigTime：扫描游戏活动时间配置
+- CheckConfigurationTableUpdate：检测项目配置表文件是否更新、删除、修改
+- CheckFileName：扫描文件名称合法性
+- CheckGlobalAssetsUpdate： 检测海外项目特定的资源文件是否更新、删除、修改
+- CheckResourceName：配置表查找工具，用于查找指定资源文件在配置表中位置
 
-##### ├──checkAssetsUpdateLogs                _# 资源扫描结果记录文件夹_
-##### │   ├──checkAssetsUpdateLogXXXX         _# 资源扫描结果1_
-##### │   ├──checkAssetsUpdateLogXXXX         _# 资源扫描结果2_
-##### ├──checkConfigurationUpdateLogs         _# 配置表扫描结果记录文件夹_
-##### │   ├──checkConfigurationUpdateLogXXX   _# 配置表扫描结果1_
-##### │   ├──checkConfigurationUpdateLogXXX   _# 配置表扫描结果2_
-##### ├──historyAssetsFileUpdateTime          _# 资源扫描记录文件夹_
-##### │   ├──Assets20250104_102630            _# 25年1月4号10点26分30秒扫描的资源时间记录_
-##### │   ├──Assets20250107_101151            _# 25年1月7号10点11分51秒扫描的资源时间记录_
-##### ├──historyConfigurationFileUpdateTime   _# 配置表扫描记录文件夹_
-##### │   ├──Configuration20241118_144209     _# 24年11月18日14点42分09秒扫描的配置表时间记录
-##### │   ├──Configuration20241219_155508     _# 24年12月19日15点55分08秒扫描的配置表时间记
-##### ├──checkFileName                        _# 资源扫描结果纪录文件夹
-#####     ├──config.py                        _# 本地工程路径
-#####     ├──filter_config.json               _# 需要过滤掉的配置表/字段序列，需要定期维护
-#####     ├──checkFileName.txt                _# checkFileName结果纪录文件
-#####     ├──checkConfigName.txt              _# checkConfigName.py结果纪录文件
-##### ├──AssetsPath.xlsx*                     _# 各主要资源（Avatar、鱼竿与鱼竿皮肤、挂件、钓点背景）路径整理_
-##### ├──checkAssetsUpdate.py*                _# 项目资源检测脚本_
-##### ├──checkConfigurationTableUpdate.py     _# 配置表检测脚本_
-##### ├──checkConfigName.py*                  _# 资源文件存在性检测脚本_
-##### ├──checkFileName.py*                    _# 资源文件后缀合法性检测脚本_
-##### ├──checkResourceName.py                 _# 查找资源文件在配置表中位置_
-##### ├──checkTAB.py                          _# 查找调用指定配置表的c#脚本_
-##### ├──checkMissionRedirection.py           _# mission_main表中跳转ID正确性校验脚本_
-##### ├──requirements-all.txt                 _# 环境导出的依赖包_
-（其中使用*结尾的文件是比较重要的文件）
+### config
+该目录下是通用的配置文件
+- filter_config.json：需要过滤掉的配置表/字段序列，需要定期维护
+- path_config.py：本地工程路径配置
 
-### **#使用方式**
-以项目资源更新检测为例：
+
+### dataBackup
+该目录下是资源扫描后的数据备份
+- domesticBackup：国内资源扫描结果备份
+  - historyAssetFileUpdateTime: 资源扫描记录文件夹
+  - historyConfigurationFileUpdateTime：配置表扫描记录文件夹
+- globalBackup：海外资源扫描结果备份
+  - historyAssetFileUpdateTime: 资源扫描记录文件夹
+  
+### result
+该目录下是做资源扫描的输出结果
+- domesticLogs：国内资源扫描结果
+  - checkAssetsUpdateLogs：资源扫描结果记录文件夹
+  - checkConfigurationUpdateLogs：配置表扫描结果记录文件夹
+- globalLogs：海外资源扫描结果
+  - checkAssetsUpdateLogs：资源扫描结果记录文件夹
+
+
+### testcase 
+该目录下用于存放后续可能需要用到的测试用例，例如Excel表格
+
+
+## 项目资源更新检测脚本使用方式
 
 1.打开checkAssetsUpdate.py脚本，根据自己项目的路径修改下方路径配置字段值
 
@@ -59,7 +66,7 @@
     # 用最新的资源文件更新时间与旧的时间对比，从而找出哪些文件更新了
     check_file_update(allFiles_InBundle,fileUpdateLogs_name_path,checkUpdateLogs_path)
 
-资源文件后缀合法性检测脚本使用说明（checkFileName.py）；
+## 资源文件后缀合法性检测脚本使用说明（checkFileName.py）
 
 1.修改配置路径为本地路径
 
