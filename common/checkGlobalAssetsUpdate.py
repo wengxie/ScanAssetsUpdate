@@ -53,15 +53,29 @@ def record_file_update(storage_echo_filelastUpdate_time_list, allFiles_InBundle,
         #定位每个路径最右侧的\，用于提取\右侧的字符串
         last_slash_index = file.rfind('\\')
         file_name = file[last_slash_index + 1:]
+
         if file_name in assets_detailed_introduction_dict:
             file_detailed = assets_detailed_introduction_dict[file_name]
         # 处理海外Avatar资源分人种的问题
         elif file_name.replace("_black","") in assets_detailed_introduction_dict:
             file_detailed = assets_detailed_introduction_dict[file_name.replace("_black","")] + "-黑人"
+            # 增加预警某资源缺少特定人种的提示，例如A资源只有A_black，A_white，那么就预警A资源缺少黄种人皮肤
+            if all(file_name.replace("_black","_white") not in element for element in allFiles_InBundle):
+                print(colorama.Fore.RED + file_name + file_detailed + '  人种资源缺少匹配的：白种人资源！！！！！')
+            if all(file_name.replace("_black","_yellow") not in element for element in allFiles_InBundle):
+                print(colorama.Fore.RED + file_name + file_detailed + '  人种资源缺少匹配的：黄种人资源！！！！！')
         elif file_name.replace("_white","") in assets_detailed_introduction_dict:
             file_detailed = assets_detailed_introduction_dict[file_name.replace("_white","")] + "-白人"
+            if all(file_name.replace("_white","_black") not in element for element in allFiles_InBundle):
+                print(colorama.Fore.RED + file_name + file_detailed + '  人种资源缺少匹配的：黑种人资源！！！！！')
+            if all(file_name.replace("_white","_yellow") not in element for element in allFiles_InBundle):
+                print(colorama.Fore.RED + file_name + file_detailed + '  人种资源缺少匹配的：黄种人资源！！！！！')
         elif file_name.replace("_yellow","") in assets_detailed_introduction_dict:
             file_detailed = assets_detailed_introduction_dict[file_name.replace("_yellow","")] + "-黄种人"
+            if all(file_name.replace("_yellow","_black") not in element for element in allFiles_InBundle):
+                print(colorama.Fore.RED + file_name + file_detailed + '  人种资源缺少匹配的：黑种人资源！！！！！')
+            if all(file_name.replace("_yellow","_white") not in element for element in allFiles_InBundle):
+                print(colorama.Fore.RED + file_name + file_detailed + '  人种资源缺少匹配的：白种人资源！！！！！')
         else:
             file_detailed = '当前文件资源在excel没有对应的详细介绍'
         #print(file_detailed)
@@ -136,7 +150,7 @@ if __name__ == '__main__':
     # 用于存储每次对比文件更新的日志记录路径
     checkUpdateLogs_path = os.path.dirname(os.path.split(os.path.realpath(__file__))[0]) + r'\result\globalLogs\checkAssetsUpdateLogs'
     # 用于对比的历史文件名路径
-    fileUpdateLogs_name_path = fileUpdateLogs_path + '\\' + 'GlobalAssets20250310_170104'
+    fileUpdateLogs_name_path = fileUpdateLogs_path + '\\' + 'GlobalAssets20250410_114158'
 
     # 找出“\client\MainProject\Assets\InBundle”文件夹下所有文件
     allFiles_InBundle = []
@@ -152,8 +166,8 @@ if __name__ == '__main__':
     storage_echo_filelastUpdate_time_tuple = tuple(record_file_update(storage_echo_filelastUpdate_time_list, allFiles_InBundle,assets_detailed_introduction_dict))
 
     # 将各个资源文件的最新更新时间保存下来，方便对比
-    #write_fileUpdateLogs(fileUpdateLogs_path,storage_echo_filelastUpdate_time_tuple)
+    write_fileUpdateLogs(fileUpdateLogs_path,storage_echo_filelastUpdate_time_tuple)
 
     # 用最新的资源文件更新时间与旧的时间对比，从而找出哪些文件更新了
-    check_file_update(allFiles_InBundle,fileUpdateLogs_name_path,checkUpdateLogs_path)
+    #check_file_update(allFiles_InBundle,fileUpdateLogs_name_path,checkUpdateLogs_path)
 
