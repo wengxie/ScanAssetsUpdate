@@ -110,7 +110,7 @@ def generate_full_report(abnormal, duplicates):
         for err_type, files in abnormal.items():
             sorted_files = sorted(files, key=lambda x: x[1])
             content.append(f"⛔ 违规类型：{err_type}（{len(sorted_files)}个）\n")
-            content.extend(f"   → {f[0]}\n" for f in sorted_files)
+            content.extend(f"   → {f[0].split('InBundle', 1)[-1]}\n" for f in sorted_files)
             content.append("\n")
 
     if duplicates:
@@ -118,7 +118,7 @@ def generate_full_report(abnormal, duplicates):
         for idx, (name, paths) in enumerate(duplicates.items(), 1):
             content.append(f"{idx}. 同名文件: {name}\n")
             sorted_paths = sorted(paths, key=lambda x: x[1])
-            content.extend(f"   ▸ {p[0]}\n" for p in sorted_paths)
+            content.extend(f"   ▸ {p[0].split('InBundle', 1)[-1]}\n" for p in sorted_paths)
             content.append("\n")
 
     return "".join(content)
@@ -168,14 +168,14 @@ def generate_diff_report(current_abnormal, current_dups, benchmark):
         content.append("=== 新增非法后缀文件 ===\n")
         for err_type, files in new_abnormal.items():
             content.append(f"⛔ 违规类型：{err_type}（{len(files)}个）\n")
-            content.extend(f"   → {f[0]}\n" for f in files)
+            content.extend(f"   → {f[0].split('InBundle', 1)[-1]}\n" for f in files)
             content.append("\n")
 
     if removed_abnormal:
         content.append("=== 减少非法后缀文件 ===\n")
         for err_type, files in removed_abnormal.items():
             content.append(f"⛔ 违规类型：{err_type}（{len(files)}个）\n")
-            content.extend(f"   → {f}\n" for f in files)
+            content.extend(f"   → {f.split('InBundle', 1)[-1]}\n" for f in files)
             content.append("\n")
 
     if new_duplicates:
@@ -183,7 +183,7 @@ def generate_diff_report(current_abnormal, current_dups, benchmark):
         for idx, (name, paths) in enumerate(new_duplicates.items(), 1):
             content.append(f"{idx}. 同名文件: {name}\n")
             sorted_paths = sorted(paths, key=lambda x: x[1])
-            content.extend(f"   ▸ {p[0]}\n" for p in sorted_paths)
+            content.extend(f"   ▸ {p[0].split('InBundle', 1)[-1]}\n" for p in sorted_paths)
             content.append("\n")
 
     if removed_duplicates:
@@ -193,7 +193,7 @@ def generate_diff_report(current_abnormal, current_dups, benchmark):
         for idx, (name, paths) in enumerate(removed_duplicates.items(), 1):
             content.append(f"{idx}. 同名文件组: {name}\n")
             sorted_paths = sorted(paths, key=lambda x: x[1])
-            content.extend(f"   ▸ {p}\n" for p in sorted_paths)
+            content.extend(f"   ▸ {p.split('InBundle', 1)[-1]}\n" for p in sorted_paths)
             content.append("\n")
 
     report_content = "".join(content).strip()

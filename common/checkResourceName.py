@@ -1,10 +1,48 @@
 import logging
 import os
 from typing import List, Tuple
-
 import chardet
 from config import path_config
 
+
+
+def get_encoding(file):
+    with open(file, 'rb') as f:
+        return chardet.detect(f.read())['encoding']
+
+def find_files(directory, pattern):
+    for root, dirs, files in os.walk(directory):
+        for basename in files:
+            if basename.endswith(pattern):
+                filename = os.path.join(root, basename)
+                yield filename
+
+def search_string_in_file(file_name, string_to_search):
+    encoding = get_encoding(file_name)
+    try:
+        with open(file_name, 'r', encoding=encoding) as read_obj:
+            for line in read_obj:
+                if string_to_search in line:
+                    return True
+    except UnicodeDecodeError:
+        with open(file_name, 'r', encoding=encoding, errors='ignore') as read_obj:
+            for line in read_obj:
+                if string_to_search in line:
+                    return True
+    return False
+
+def search_in_scripts():
+    assest_path = "client\MainProject\Assets"
+    UNITY_ROOT_PATH = select_benchmark()
+    directory = os.path.join(UNITY_ROOT_PATH,assest_path)
+
+    pattern = ".cs"
+    string_to_search = input("请输入要在脚本搜索的字符串: ").strip()
+
+    files = find_files(directory, pattern)
+    for file_name in files:
+        if search_string_in_file(file_name, string_to_search):
+            print(os.path.basename(file_name))
 
 def read_file_with_chardet(file_path: str) -> str:
     """
@@ -121,4 +159,5 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    # main()
+    search_in_scripts()
