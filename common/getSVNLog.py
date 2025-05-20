@@ -76,7 +76,7 @@ def main():
     timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
     log_filename = log_path / f"svn_log_{timestamp}.txt"
 
-    start_date = '2025-05-14'
+    start_date = '2025-05-12'
     end_date = '2025-05-14'
 
     file_endings = [''] # 可修改为需要过滤的文件后缀

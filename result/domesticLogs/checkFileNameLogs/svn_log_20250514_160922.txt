@@ -1,0 +1,243 @@
+--------------------------------------------------
+🖋提交记录：r182205 | tumengqi@tuyoogame.com | 2025-05-12 11:59:54 +0800 (周一, 2025-05-12) | 1 行
+提交信息:
+改变的路径: 
+
+A44图片格式调整
+📁 改动文件:
+M /project/branchesCHS/release_2025_4_1/client/MainProject/Assets/ArtImport/Art_scene_developing/A44_MediterraneanSea/Textures/A44_Pattern_D_01_bg.png.meta
+M /project/branchesCHS/release_2025_4_1/client/MainProject/Assets/ArtImport/Art_scene_developing/A44_MediterraneanSea/Textures/A44_Pattern_D_02_bg.png.meta
+M /project/branchesCHS/release_2025_4_1/client/MainProject/Assets/ArtImport/Art_scene_developing/A44_MediterraneanSea/Textures/A44_Pattern_N_01_bg.png.meta
+M /project/branchesCHS/release_2025_4_1/client/MainProject/Assets/ArtImport/Art_scene_developing/A44_MediterraneanSea/Textures/A44_Pattern_N_02_bg.png.meta
+M /project/branchesCHS/release_2025_4_1/client/MainProject/Assets/ArtImport/Art_scene_developing/A44_MediterraneanSea/Textures/A44_Pattern_YQ_01_bg.png.meta
+M /project/branchesCHS/release_2025_4_1/client/MainProject/Assets/ArtImport/Art_scene_developing/A44_MediterraneanSea/Textures/A44_Pattern_YQ_02_bg.png.meta
+
+--------------------------------------------------
+🖋提交记录：r182206 | tumengqi@tuyoogame.com | 2025-05-12 13:37:03 +0800 (周一, 2025-05-12) | 1 行
+提交信息:
+改变的路径: 
+
+A44动画文件同步
+📁 改动文件:
+M /project/branchesCHS/release_2025_4_1/client/MainProject/Assets/ArtImport/Art_scene_developing/A44_MediterraneanSea
+M /project/branchesCHS/release_2025_4_1/client/MainProject/Assets/ArtImport/Art_scene_developing/A44_MediterraneanSea/Animation/A44_1_weather_01.anim
+M /project/branchesCHS/release_2025_4_1/client/MainProject/Assets/ArtImport/Art_scene_developing/A44_MediterraneanSea/Animation/A44_1_weather_02.anim
+M /project/branchesCHS/release_2025_4_1/client/MainProject/Assets/ArtImport/Art_scene_developing/A44_MediterraneanSea/Animation/A44_1_weather_03.anim
+M /project/branchesCHS/release_2025_4_1/client/MainProject/Assets/ArtImport/Art_scene_developing/A44_MediterraneanSea/Animation/A44_1_weather_04.anim
+M /project/branchesCHS/release_2025_4_1/client/MainProject/Assets/ArtImport/Art_scene_developing/A44_MediterraneanSea/Animation/A44_2_weather_01.anim
+M /project/branchesCHS/release_2025_4_1/client/MainProject/Assets/ArtImport/Art_scene_developing/A44_MediterraneanSea/Animation/A44_2_weather_02.anim
+M /project/branchesCHS/release_2025_4_1/client/MainProject/Assets/ArtImport/Art_scene_developing/A44_MediterraneanSea/Animation/A44_2_weather_03.anim
+M /project/branchesCHS/release_2025_4_1/client/MainProject/Assets/ArtImport/Art_scene_developing/A44_MediterraneanSea/Animation/A44_2_weather_04.anim
+M /project/branchesCHS/release_2025_4_1/client/MainProject/Assets/ArtImport/Art_scene_developing/A44_MediterraneanSea/Animation/BGPattern_Anim.anim
+M /project/branchesCHS/release_2025_4_1/client/MainProject/Assets/ArtImport/Art_scene_developing/A44_MediterraneanSea/Animation/Scene.controller
+M /project/branchesCHS/release_2025_4_1/client/MainProject/Assets/ArtImport/Art_scene_developing/A44_MediterraneanSea/Animation/Scene_2.controller
+M /project/branchesCHS/release_2025_4_1/client/MainProject/Assets/ArtImport/Art_scene_developing/A44_MediterraneanSea/Materials/A44_Sky_01.mat
+
+--------------------------------------------------
+🖋提交记录：r182207 | tumengqi@tuyoogame.com | 2025-05-12 13:39:12 +0800 (周一, 2025-05-12) | 1 行
+提交信息:
+改变的路径: 
+
+A44场景文件同步
+📁 改动文件:
+M /project/branchesCHS/release_2025_4_1/client/MainProject/Assets/ArtImport/Art_scene/A44_MediterraneanSea_1.unity
+M /project/branchesCHS/release_2025_4_1/client/MainProject/Assets/ArtImport/Art_scene/A44_MediterraneanSea_2.unity
+
+--------------------------------------------------
+🖋提交记录：r182433 | allenwang@tuyoogame.com | 2025-05-13 16:07:02 +0800 (周二, 2025-05-13) | 1 行
+提交信息:
+改变的路径: 
+
+LUA BC commit by ci
+📁 改动文件:
+M /project/branchesCHS/release_2025_4_1/client/MainProject/LuaBC/View/RechargeStore/Store/StorePanelMidAutumnPackView.lua
+
+--------------------------------------------------
+🖋提交记录：r182438 | liuqing@tuyoogame.com | 2025-05-13 16:09:16 +0800 (周二, 2025-05-13) | 1 行
+提交信息:
+改变的路径: 
+
+合并调整线索配图
+📁 改动文件:
+M /project/branchesCHS/release_2025_4_1/client/MainProject/Assets/InBundle/UI/Texture/MainStageClue/icon_mainstage_clue_S01C03_10.png
+
+--------------------------------------------------
+🖋提交记录：r182441 | allenwang@tuyoogame.com | 2025-05-13 16:12:24 +0800 (周二, 2025-05-13) | 1 行
+提交信息:
+改变的路径: 
+
+LUA BC commit by ci
+📁 改动文件:
+M /project/branchesCHS/release_2025_4_1/client/MainProject/LuaBC/Game/Avatar/Entity/AvatarEntity_Rod.lua
+M /project/branchesCHS/release_2025_4_1/client/MainProject/LuaBC/Game/FishingMatch/FishingMatch.lua
+M /project/branchesCHS/release_2025_4_1/client/MainProject/LuaBC/Game/FishingMatch/FishingMatchEventAdapter/FishingMatchEventRogueAdapter.lua
+M /project/branchesCHS/release_2025_4_1/client/MainProject/LuaBC/Game/FishingMatch/Perform/Actor/FishingPlayer_P.lua
+M /project/branchesCHS/release_2025_4_1/client/MainProject/LuaBC/Game/FishingMatch/Perform/Actor/FishingRod_P.lua
+A /project/branchesCHS/release_2025_4_1/client/MainProject/LuaBC/Game/FishingMatch/Perform/State/Player/CastPerform
+A /project/branchesCHS/release_2025_4_1/client/MainProject/LuaBC/Game/FishingMatch/Perform/State/Player/CastPerform/CastPerform_First.lua
+A /project/branchesCHS/release_2025_4_1/client/MainProject/LuaBC/Game/FishingMatch/Perform/State/Player/CastPerform/CastPerform_Third.lua
+A /project/branchesCHS/release_2025_4_1/client/MainProject/LuaBC/Game/FishingMatch/Perform/State/Player/CastPerform/CastPerform_ThirdKatana.lua
+A /project/branchesCHS/release_2025_4_1/client/MainProject/LuaBC/Game/FishingMatch/Perform/State/Player/CastPerform/CastPerform_ThridSnake.lua
+M /project/branchesCHS/release_2025_4_1/client/MainProject/LuaBC/Game/FishingMatch/Perform/State/Player/PlayerPCast.lua
+M /project/branchesCHS/release_2025_4_1/client/MainProject/LuaBC/Game/FishingMatch/Perform/State/Player/PlayerPIdle.lua
+M /project/branchesCHS/release_2025_4_1/client/MainProject/LuaBC/Game/FishingMatch/Perform/State/Player/PlayerPWaitingFish.lua
+M /project/branchesCHS/release_2025_4_1/client/MainProject/LuaBC/Game/FishingMatch/PlayerState/PlayerBattle.lua
+M /project/branchesCHS/release_2025_4_1/client/MainProject/LuaBC/Manager/Controller/Battle/RogueController.lua
+
+--------------------------------------------------
+🖋提交记录：r182443 | shidanyang@tuyoogame.com | 2025-05-13 16:17:33 +0800 (周二, 2025-05-13) | 5 行
+提交信息:
+改变的路径: 
+
+Merged revision(s) 182084 from project/branchesCHS/Dev_2024_3_30:
+【avatar】修改面板初始化tab
+
+........
+📁 改动文件:
+M /project/branchesCHS/release_2025_4_1
+M /project/branchesCHS/release_2025_4_1/client
+M /project/branchesCHS/release_2025_4_1/client/MainProject
+M /project/branchesCHS/release_2025_4_1/client/MainProject/Assets
+M /project/branchesCHS/release_2025_4_1/client/MainProject/Assets/InBundle/UI
+M /project/branchesCHS/release_2025_4_1/client/MainProject/Assets/InBundle/UI/Prefabs
+M /project/branchesCHS/release_2025_4_1/client/MainProject/Assets/InBundle/UI/Prefabs/Panel_Avatar.prefab
+
+--------------------------------------------------
+🖋提交记录：r182452 | allenwang@tuyoogame.com | 2025-05-13 16:32:04 +0800 (周二, 2025-05-13) | 1 行
+提交信息:
+改变的路径: 
+
+LUA BC commit by ci
+📁 改动文件:
+M /project/branchesCHS/release_2025_4_1/client/MainProject/LuaBC/Game/FishingMatch/FishingMatch.lua
+M /project/branchesCHS/release_2025_4_1/client/MainProject/LuaBC/Game/FishingMatch/FishingMatchEventAdapter/FishingMatchEventChallengeAdapter.lua
+M /project/branchesCHS/release_2025_4_1/client/MainProject/LuaBC/Game/FishingMatch/FishingMatchEventAdapter/FishingMatchEventPVPAdapter.lua
+M /project/branchesCHS/release_2025_4_1/client/MainProject/LuaBC/Game/FishingMatch/FishingMatchEventAdapter/FishingMatchEventRogueAdapter.lua
+M /project/branchesCHS/release_2025_4_1/client/MainProject/LuaBC/Game/FishingMatch/PlayerState/PlayerBattle.lua
+M /project/branchesCHS/release_2025_4_1/client/MainProject/LuaBC/View/Battle/Rogue/RogueMainStagePanel.lua
+
+--------------------------------------------------
+🖋提交记录：r182473 | allenwang@tuyoogame.com | 2025-05-13 16:52:05 +0800 (周二, 2025-05-13) | 1 行
+提交信息:
+改变的路径: 
+
+LUA BC commit by ci
+📁 改动文件:
+M /project/branchesCHS/release_2025_4_1/client/MainProject/LuaBC/Network/DataDB/CustomData/BattlePassData.lua
+M /project/branchesCHS/release_2025_4_1/client/MainProject/LuaBC/View/BattlePassDoubleWeek/BattlePassDoubleWeekBuyPanel.lua
+
+--------------------------------------------------
+🖋提交记录：r182474 | cuixue@tuyoogame.com | 2025-05-13 16:53:50 +0800 (周二, 2025-05-13) | 1 行
+提交信息:
+改变的路径: 
+
+渔场等级难度下调
+📁 改动文件:
+M /project/branchesCHS/release_2025_4_1/datapool/ElementData/BaseData/NEW_PLOT_FISHERIES_STAR.data.txt
+M /project/branchesCHS/release_2025_4_1/datapool/ElementData/BaseData/NEW_PLOT_FISH_STAR_COMBAT_POWER.data.txt
+M /project/branchesCHS/release_2025_4_1/datapool/ElementData/BaseData/NEW_PLOT_FISH_STAR_COMBAT_SPECIAL.data.txt
+
+--------------------------------------------------
+🖋提交记录：r182480 | cuixue@tuyoogame.com | 2025-05-13 16:56:23 +0800 (周二, 2025-05-13) | 1 行
+提交信息:
+改变的路径: 
+
+auto commit elementdata.dpc
+📁 改动文件:
+M /project/branchesCHS/release_2025_4_1/client/MainProject/Assets/elementdata.dpc
+
+--------------------------------------------------
+🖋提交记录：r182498 | cuixue@tuyoogame.com | 2025-05-13 17:38:28 +0800 (周二, 2025-05-13) | 1 行
+提交信息:
+改变的路径: 
+
+渔场高级鱼重权重调整
+📁 改动文件:
+M /project/branchesCHS/release_2025_4_1/datapool/ElementData/BaseData/NEW_PLOT_FISH_STAR_COMBAT_POWER.data.txt
+
+--------------------------------------------------
+🖋提交记录：r182500 | cuixue@tuyoogame.com | 2025-05-13 17:42:00 +0800 (周二, 2025-05-13) | 1 行
+提交信息:
+改变的路径: 
+
+auto commit elementdata.dpc
+📁 改动文件:
+M /project/branchesCHS/release_2025_4_1/client/MainProject/Assets/elementdata.dpc
+
+--------------------------------------------------
+🖋提交记录：r182529 | storm@tuyoogame.com | 2025-05-13 19:12:26 +0800 (周二, 2025-05-13) | 1 行
+提交信息:
+改变的路径: 
+
+by checker auto commit
+📁 改动文件:
+M /project/branchesCHS/release_2025_4_1/server/prgs/knight-table/table-checker/config/data/GLOBAL_VALUE.data.txt
+M /project/branchesCHS/release_2025_4_1/server/prgs/knight-table/table-checker/config/data/NEW_PLOT_FISHERIES_STAR.data.txt
+M /project/branchesCHS/release_2025_4_1/server/prgs/knight-table/table-checker/config/data/NEW_PLOT_FISH_STAR_COMBAT_POWER.data.txt
+M /project/branchesCHS/release_2025_4_1/server/prgs/knight-table/table-checker/config/data/NEW_PLOT_FISH_STAR_COMBAT_SPECIAL.data.txt
+M /project/branchesCHS/release_2025_4_1/server/prgs/knight-table/table-checker/src/main/java/storm/knight/common/config/auto/mapping/GlobalValueEnum.java
+
+--------------------------------------------------
+🖋提交记录：r182531 | storm@tuyoogame.com | 2025-05-13 19:12:27 +0800 (周二, 2025-05-13) | 1 行
+提交信息:
+改变的路径: 
+
+by checker auto commit
+📁 改动文件:
+M /project/branchesCHS/release_2025_4_1/datapool/ElementData/Other/TpIdToNames.txt
+
+--------------------------------------------------
+🖋提交记录：r182532 | allenwang@tuyoogame.com | 2025-05-13 19:17:15 +0800 (周二, 2025-05-13) | 1 行
+提交信息:
+改变的路径: 
+
+LUA BC commit by ci
+📁 改动文件:
+M /project/branchesCHS/release_2025_4_1/client/MainProject/LuaBC/Shared/EnumConst.lua
+
+--------------------------------------------------
+🖋提交记录：r182535 | storm@tuyoogame.com | 2025-05-13 19:39:27 +0800 (周二, 2025-05-13) | 1 行
+提交信息:
+改变的路径: 
+
+提升客户端资源版本号20250513
+📁 改动文件:
+M /project/branchesCHS/release_2025_4_1/datapool/ElementData/BaseData/GLOBAL_VALUE.data.txt
+
+--------------------------------------------------
+🖋提交记录：r182536 | storm@tuyoogame.com | 2025-05-13 19:39:28 +0800 (周二, 2025-05-13) | 1 行
+提交信息:
+改变的路径: 
+
+提升客户端资源版本号20250513
+📁 改动文件:
+M /project/branchesCHS/release_2025_4_1/datapool/策划模板导出工具/GLOBAL_VALUE.xlsm
+
+--------------------------------------------------
+🖋提交记录：r182537 | storm@tuyoogame.com | 2025-05-13 19:40:57 +0800 (周二, 2025-05-13) | 1 行
+提交信息:
+改变的路径: 
+
+by checker auto commit
+📁 改动文件:
+M /project/branchesCHS/release_2025_4_1/server/prgs/knight-table/table-checker/config/data/GLOBAL_VALUE.data.txt
+M /project/branchesCHS/release_2025_4_1/server/prgs/knight-table/table-checker/src/main/java/storm/knight/common/config/auto/mapping/GlobalValueEnum.java
+
+--------------------------------------------------
+🖋提交记录：r182539 | storm@tuyoogame.com | 2025-05-13 19:40:58 +0800 (周二, 2025-05-13) | 1 行
+提交信息:
+改变的路径: 
+
+by checker auto commit
+📁 改动文件:
+M /project/branchesCHS/release_2025_4_1/datapool/ElementData/Other/TpIdToNames.txt
+
+--------------------------------------------------
+🖋提交记录：r182540 | allenwang@tuyoogame.com | 2025-05-13 19:42:19 +0800 (周二, 2025-05-13) | 1 行
+提交信息:
+改变的路径: 
+
+LUA BC commit by ci
+📁 改动文件:
+M /project/branchesCHS/release_2025_4_1/client/MainProject/LuaBC/Shared/EnumConst.lua
+
