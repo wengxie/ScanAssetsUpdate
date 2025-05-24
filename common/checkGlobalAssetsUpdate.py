@@ -10,6 +10,7 @@ import time
 import colorama
 import numpy
 import pandas
+import easygui
 
 # 全局变量
 from config import path_config
@@ -92,6 +93,8 @@ def write_fileUpdateLogs(fileUpdateLogs_path,storage_echo_filelastUpdate_time_tu
         for echo_filelastUpdate_time in storage_echo_filelastUpdate_time_tuple:
             f.write(str(echo_filelastUpdate_time) + '\n')
         f.write(")")
+    easygui.msgbox(msg="当前资源最新更新时间备份文件保存到：\n\n" + logsfile, title="资源最新更新时间备份结果",
+                   ok_button="OK")
 
 # 检查文件的更新、删除、新增
 def check_file_update(allFiles_InBundle,fileUpdateLogs_name_path,checkUpdateLogs_path):
@@ -137,6 +140,9 @@ def check_file_update(allFiles_InBundle,fileUpdateLogs_name_path,checkUpdateLogs
     with open(checkUpdateLogsfile, 'w', encoding='utf-8') as f:
         f.writelines(store_allfiles_logs)
 
+    easygui.msgbox(msg="资源更新扫描结果保存到：\n\n" + checkUpdateLogsfile, title="资源更新扫描结果",
+                   ok_button="OK")
+
 
 # 按装订区域中的绿色按钮以运行脚本。
 if __name__ == '__main__':
@@ -165,9 +171,15 @@ if __name__ == '__main__':
     # 将文件时间以三元组的方式存储(文件,文件最近一次更新时间戳,时间戳格式转换年月日格式)
     storage_echo_filelastUpdate_time_tuple = tuple(record_file_update(storage_echo_filelastUpdate_time_list, allFiles_InBundle,assets_detailed_introduction_dict))
 
-    # 将各个资源文件的最新更新时间保存下来，方便对比
-    write_fileUpdateLogs(fileUpdateLogs_path,storage_echo_filelastUpdate_time_tuple)
-
-    # 用最新的资源文件更新时间与旧的时间对比，从而找出哪些文件更新了
-    #check_file_update(allFiles_InBundle,fileUpdateLogs_name_path,checkUpdateLogs_path)
-
+    # 执行内容选择弹窗
+    ret = easygui.indexbox(
+        "请将要扫描的项目资源更新到最新后，选择您要操作的选项。\n\n注意：如果选择资源更新扫描，则需要先配置用于对比的备份文件名！",
+        title='资源更新扫描', choices=['备份当前资源最新更新时间', '资源更新扫描'])
+    if ret == 0:
+        # 将各个资源文件的最新更新时间保存下来，方便对比
+        write_fileUpdateLogs(fileUpdateLogs_path,storage_echo_filelastUpdate_time_tuple)
+    elif ret == 1:
+        # 用最新的资源文件更新时间与旧的时间对比，从而找出哪些文件更新了
+        check_file_update(allFiles_InBundle,fileUpdateLogs_name_path,checkUpdateLogs_path)
+    else:
+        print("已退出资源检查运行项，资源检查未执行！")

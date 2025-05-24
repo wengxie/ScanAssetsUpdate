@@ -155,9 +155,11 @@ if __name__ == '__main__':
     if ret == 0:
         # 将各个资源文件的最新更新时间保存下来，方便对比
         write_fileUpdateLogs(fileUpdateLogs_path,storage_echo_filelastUpdate_time_tuple)
-    else:
+    elif ret == 1:
         # 用最新的资源文件更新时间与旧的时间对比，从而找出哪些文件更新了
-        check_file_update(allFiles_InBundle,fileUpdateLogs_name_path,checkUpdateLogs_path)
+        check_file_update(allFiles_InBundle, fileUpdateLogs_name_path, checkUpdateLogs_path)
+    else:
+        print("已退出资源检查运行项，资源检查未执行！")
 
 
 
