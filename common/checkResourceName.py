@@ -159,5 +159,5 @@ def main():
 
 
 if __name__ == "__main__":
-    # main()
-    search_in_scripts()
+    main()
+    # search_in_scripts()
