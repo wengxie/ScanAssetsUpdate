@@ -159,7 +159,7 @@ if __name__ == '__main__':
         # 用最新的资源文件更新时间与旧的时间对比，从而找出哪些文件更新了
         check_file_update(allFiles_InBundle, fileUpdateLogs_name_path, checkUpdateLogs_path)
     else:
-        print("已退出资源检查运行项，资源检查未执行！")
+        print("已退出资源检查运行项，资源检查未执行！!")
 
 
 
