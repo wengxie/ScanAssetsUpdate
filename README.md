@@ -26,7 +26,10 @@
   - historyConfigurationFileUpdateTime：配置表扫描记录文件夹
 - globalBackup：海外资源扫描结果备份
   - historyAssetFileUpdateTime: 资源扫描记录文件夹
-  
+
+### dingtalkchatbot
+该目录下是项目代码连接钉钉自定义机器人的处理模块
+
 ### result
 该目录下是做资源扫描的输出结果
 - domesticLogs：国内资源扫描结果
