@@ -8,7 +8,7 @@ def inform_commit_messages_to_dingding_hook():
     将提交内容消息通过群机器人的方式同步到群里
     :return:
     """
-    print("处理处理!!!!!!!!!!!!!!!!!!!!!!!!!")
+    print("处理处理!!!!!!!!!!!!!!!!!!!!!!!!")
 
 if __name__ == '__main__':
     sys.exit(inform_commit_messages_to_dingding_hook())
