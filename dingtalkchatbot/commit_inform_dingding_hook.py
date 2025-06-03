@@ -11,4 +11,6 @@ def inform_commit_messages_to_dingding_hook():
     print("处理处理!!!!!!!!!!!!!!!!!!!!!!!!")
 
 if __name__ == '__main__':
+    message = sys.stdin.read().strip()
+    print(message)
     sys.exit(inform_commit_messages_to_dingding_hook())
