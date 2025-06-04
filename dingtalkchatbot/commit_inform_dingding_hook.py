@@ -24,6 +24,7 @@ if __name__ == '__main__':
     # 同时支持设置消息发送失败时提醒，默认fail_notice为false不提醒，开发者可以根据返回的消息发送结果自行判断和处理
     robotxiaoding = DingtalkChatbot(webhook, secret, pc_slide=True, fail_notice=False)
 
+
     # 通过弹窗确定是否同步修改内容
     ret = easygui.indexbox(
         "请确定是否需要将提交内容通过机器人同步到钉钉群中\n\n注意：如果选择同步，将会@所有群成员！！",
