@@ -33,7 +33,7 @@ if __name__ == '__main__':
         robotxiaoding.send_text(msg="提交代码： " + authorName +
                                     "\n提交时间： " + date_str +
                                     "\n修改内容： " + message +
-                                    "\n改动文件： " + json.dumps(changed_files, indent=4), is_at_all=False)
+                                    "改动文件： " + json.dumps(changed_files, indent=4), is_at_all=False)
         sys.exit(0)
     else :
         sys.exit(0)
