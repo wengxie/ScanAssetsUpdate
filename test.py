@@ -1,4 +1,5 @@
 import datetime
+import json
 import sys
 import git
 from dingtalkchatbot.chatbot import DingtalkChatbot, ActionCard, FeedLink, CardItem
@@ -10,4 +11,4 @@ authorName = repo.commit().author.name
 message = repo.commit().message
 date = repo.commit().committed_datetime
 date_str = datetime.datetime.strftime(date, '%Y年%m月%d日%H时%M分%S秒')
-print(repo.commit())
+print(json.dumps(repo.head.commit.stats.files, indent=4))
