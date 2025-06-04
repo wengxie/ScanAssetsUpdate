@@ -21,7 +21,7 @@ if __name__ == '__main__':
     robotxiaoding = DingtalkChatbot(webhook, secret, pc_slide=True, fail_notice=False)
 
     ret = easygui.indexbox(
-        "请确定是否需要将提交内容通过机器人同步到钉钉群中\n\n注意：如果选择同步，将会@所有群成员！",
+        "请确定是否需要将提交内容通过机器人同步到钉钉群中\n\n注意：如果选择同步，将会@所有群成员！！",
         title='确定是否将提交内容同步群成员', choices=['确认同步', '暂不同步'])
     if ret == 0:
         # text 控制钉钉自定义机器人中发送消息
