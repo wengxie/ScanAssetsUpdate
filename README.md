@@ -73,7 +73,7 @@
 
 1.修改配置路径为本地路径
 
-    # 在config.py文件中修改配置路径。
+    # 在config.py文件中修改配置路径
 
 2.运行checkFileName.py脚本。输出结果保存在checkFileName.txt中，每次运行脚本会覆盖之前的纪录
 
