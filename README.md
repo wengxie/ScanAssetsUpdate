@@ -16,7 +16,7 @@
 ### config
 该目录下是通用的配置文件
 - filter_config.json：需要过滤掉的配置表/字段序列，需要定期维护
-- path_config.py：本地工程路径配置
+- path_config.py: 本地工程路径配置
 
 
 ### dataBackup
