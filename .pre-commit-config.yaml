@@ -1,0 +1,10 @@
+repos:
+- repo: local
+  hooks:
+    # Run the linter.
+    - id: commit-inform-dingding-hook
+      name: commit inform dingding hook
+      entry: python ./dingtalkchatbot/commit_inform_dingding_hook.py
+      language: system
+      files: ''
+      stages: [commit-msg]

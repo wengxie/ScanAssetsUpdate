@@ -16,7 +16,7 @@
 ### config
 该目录下是通用的配置文件
 - filter_config.json：需要过滤掉的配置表/字段序列，需要定期维护
-- path_config.py：本地工程路径配置
+- path_config.py: 本地工程路径配置
 
 
 ### dataBackup
@@ -26,7 +26,10 @@
   - historyConfigurationFileUpdateTime：配置表扫描记录文件夹
 - globalBackup：海外资源扫描结果备份
   - historyAssetFileUpdateTime: 资源扫描记录文件夹
-  
+
+### dingtalkchatbot
+该目录下是项目代码连接钉钉自定义机器人的处理模块
+
 ### result
 该目录下是做资源扫描的输出结果
 - domesticLogs：国内资源扫描结果
@@ -70,7 +73,7 @@
 
 1.修改配置路径为本地路径
 
-    # 在config.py文件中修改配置路径。
+    # 在config.py文件中修改配置路径
 
 2.运行checkFileName.py脚本。输出结果保存在checkFileName.txt中，每次运行脚本会覆盖之前的纪录
 

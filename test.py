@@ -1,8 +1,16 @@
-my_list = ["hello world", "python is great", "another example"]
-substring = "python"
+import datetime
+import json
+import sys
+import git
+from dingtalkchatbot.chatbot import DingtalkChatbot, ActionCard, FeedLink, CardItem
+import easygui
 
-# 使用列表推导式和any()
-if substring in my_list:
-    print("子字符串存在于列表中")
-else:
-    print("子字符串不存在于列表中")
+# 捕获git提交的信息，包含开发人员、提交内容、提交时间
+repo = git.Repo(search_parent_directories=True)
+authorName = repo.commit().author.name
+message = repo.commit().message
+date = repo.commit().committed_datetime
+date_str = datetime.datetime.strftime(date, '%Y年%m月%d日%H时%M分%S秒')
+
+
+print(json.dumps(repo.head.commit.stats.files, indent=4))
